@@ -71,7 +71,7 @@ if(wrapper.enabled && pressed){
 propertyChanged("_Chatee", _Chatee);
         if((hasValue(_Chatee) != false))
 {
-            _DialogBox.say("Dialog Box PM", "_customBlock_Display", [_Chatee.getValue("Chatee PM", "_Portrait"),_Chatee.getValue("Chatee PM", "_Name"),_Chatee.getValue("Chatee PM", "_Bio"),"I'll fucking do you."]);
+            _DialogBox.say("Dialog Box PM", "_customBlock_Display", [_Chatee.getValue("Chatee PM", "_Portrait"),_Chatee.getValue("Chatee PM", "_Name"),_Chatee.getValue("Chatee PM", "_Bio"),"Can I be of assistance?"]);
             _IsChatting = true;
 propertyChanged("_IsChatting", _IsChatting);
 }

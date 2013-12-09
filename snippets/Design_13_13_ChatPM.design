@@ -27,7 +27,7 @@
                                 <int id="1" val="Chatee PM"/>
                                 <int id="2" val="_Bio"/>
                             </get-attribute>
-                            <int id="4" val="I&amp;#039;ll fucking do you."/>
+                            <int id="4" val="Can I be of assistance?"/>
                         </custom-63>
                         <set-val-13-3 comment="false" x="37" y="155">
                             <true comment="false" id="0" x="0" y="0"/>

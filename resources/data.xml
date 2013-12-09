@@ -88,8 +88,8 @@
                 <prop id="12" list="0" val="0"/>
                 <prop id="13" list="0" val="0"/>
                 <prop id="14" list="0" val="false"/>
-                <prop id="15" list="0" val="0"/>
                 <prop id="2147483647" list="0" val="thisactor"/>
+                <prop id="15" list="0" val="0"/>
                 <prop id="17" list="0" val="false"/>
                 <prop id="16" list="0" val="15"/>
             </s>
@@ -200,8 +200,8 @@
                 <prop id="12" list="0" val="0"/>
                 <prop id="13" list="0" val="0"/>
                 <prop id="14" list="0" val="false"/>
-                <prop id="15" list="0" val="0"/>
                 <prop id="2147483647" list="0" val="thisactor"/>
+                <prop id="15" list="0" val="0"/>
                 <prop id="17" list="0" val="false"/>
                 <prop id="16" list="0" val="15"/>
             </s>
@@ -286,7 +286,7 @@
             <s enabled="true" id="22">
                 <prop id="1" list="0" val="49"/>
                 <prop id="2" list="0" val="PC Cheeseman"/>
-                <prop id="3" list="0" val="Local bobby|Likes: People|Dislikes: Blisters"/>
+                <prop id="3" list="0" val="Local Bobby|Likes: People|Dislikes: Blisters"/>
                 <prop id="2147483647" list="0" val="thisactor"/>
             </s>
             <s enabled="true" id="8">
@@ -304,8 +304,8 @@
                 <prop id="12" list="0" val="0"/>
                 <prop id="13" list="0" val="0"/>
                 <prop id="14" list="0" val="false"/>
-                <prop id="15" list="0" val="0"/>
                 <prop id="2147483647" list="0" val="thisactor"/>
+                <prop id="15" list="0" val="0"/>
                 <prop id="17" list="0" val="false"/>
                 <prop id="16" list="0" val="15"/>
             </s>
