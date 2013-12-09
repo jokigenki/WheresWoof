@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<groups>
+    <group eventID="1" id="0">
+        <step comment="false" x="15" y="15">
+            <group eventID="1" id="-1">
+                <if comment="false" x="26" y="40">
+                    <group eventID="1" id="-1">
+                        <set-val-24-2 comment="false" x="37" y="73">
+                            <minus comment="false" id="0" x="0" y="0">
+                                <get-attribute comment="false" id="0" x="0" y="0">
+                                    <ACTOR eid="var" id="0" vid="1"/>
+                                    <int id="1" val="Block Map Character PM"/>
+                                    <int id="2" val="_XPosition"/>
+                                </get-attribute>
+                                <get-attribute comment="false" id="1" x="0" y="0">
+                                    <ACTOR eid="this" id="0"/>
+                                    <int id="1" val="Block Map Character PM"/>
+                                    <int id="2" val="_XPosition"/>
+                                </get-attribute>
+                            </minus>
+                        </set-val-24-2>
+                        <set-val-24-3 comment="false" x="37" y="111">
+                            <minus comment="false" id="0" x="0" y="0">
+                                <get-attribute comment="false" id="0" x="0" y="0">
+                                    <ACTOR eid="var" id="0" vid="1"/>
+                                    <int id="1" val="Block Map Character PM"/>
+                                    <int id="2" val="_YPosition"/>
+                                </get-attribute>
+                                <get-attribute comment="false" id="1" x="0" y="0">
+                                    <ACTOR eid="this" id="0"/>
+                                    <int id="1" val="Block Map Character PM"/>
+                                    <int id="2" val="_YPosition"/>
+                                </get-attribute>
+                            </minus>
+                        </set-val-24-3>
+                        <if comment="false" x="37" y="149">
+                            <group eventID="1" id="-1">
+                                <set-attribute comment="false" x="48" y="189">
+                                    <ACTOR eid="this" id="0"/>
+                                    <int id="1" val="NPC Wander PM"/>
+                                    <int id="2" val="_AllowWander"/>
+                                    <false comment="false" id="3" x="0" y="0"/>
+                                </set-attribute>
+                            </group>
+                            <less comment="false" id="0" x="0" y="0">
+                                <plus comment="false" id="0" x="0" y="0">
+                                    <times comment="false" id="0" x="0" y="0">
+                                        <get-val-24-2 comment="false" id="0" x="0" y="0"/>
+                                        <get-val-24-2 comment="false" id="1" x="0" y="0"/>
+                                    </times>
+                                    <times comment="false" id="1" x="0" y="0">
+                                        <get-val-24-3 comment="false" id="0" x="0" y="0"/>
+                                        <get-val-24-3 comment="false" id="1" x="0" y="0"/>
+                                    </times>
+                                </plus>
+                                <times comment="false" id="1" x="0" y="0">
+                                    <get-val-24-4 comment="false" id="0" x="0" y="0"/>
+                                    <get-val-24-4 comment="false" id="1" x="0" y="0"/>
+                                </times>
+                            </less>
+                        </if>
+                        <else comment="false" x="37" y="233">
+                            <group eventID="1" id="-1">
+                                <set-attribute comment="false" x="48" y="253">
+                                    <ACTOR eid="this" id="0"/>
+                                    <int id="1" val="NPC Wander PM"/>
+                                    <int id="2" val="_AllowWander"/>
+                                    <true comment="false" id="3" x="0" y="0"/>
+                                </set-attribute>
+                            </group>
+                        </else>
+                    </group>
+                    <value comment="false" id="0" x="0" y="0">
+                        <int id="0" val="1"/>
+                        <int id="1" val="0"/>
+                    </value>
+                </if>
+            </group>
+        </step>
+    </group>
+    <group eventID="1" id="-1"/>
+</groups>

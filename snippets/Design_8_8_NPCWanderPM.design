@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<groups>
+    <group eventID="1" id="0">
+        <step comment="false" x="15" y="15">
+            <group eventID="1" id="-1">
+                <set-val-8-7 comment="false" x="26" y="40">
+                    <get-attribute comment="false" id="0" x="0" y="0">
+                        <ACTOR eid="this" id="0"/>
+                        <int id="1" val="Block Map Character PM"/>
+                        <int id="2" val="_XPosition"/>
+                    </get-attribute>
+                </set-val-8-7>
+                <set-val-8-8 comment="false" x="26" y="73">
+                    <get-attribute comment="false" id="0" x="0" y="0">
+                        <ACTOR eid="this" id="0"/>
+                        <int id="1" val="Block Map Character PM"/>
+                        <int id="2" val="_YPosition"/>
+                    </get-attribute>
+                </set-val-8-8>
+                <custom-40 comment="false" x="26" y="106">
+                    <get-val-8-7 comment="false" id="0" x="0" y="0"/>
+                    <get-val-8-8 comment="false" id="1" x="0" y="0"/>
+                </custom-40>
+                <if comment="false" x="26" y="131">
+                    <group eventID="1" id="-1">
+                        <set-val-8-14 comment="false" x="37" y="166">
+                            <false comment="false" id="0" x="0" y="0"/>
+                        </set-val-8-14>
+                    </group>
+                    <and comment="false" id="0" x="0" y="0">
+                        <eq comment="false" id="0" x="0" y="0">
+                            <get-val-8-7 comment="false" id="0" x="0" y="0"/>
+                            <get-val-8-1 comment="false" id="1" x="0" y="0"/>
+                        </eq>
+                        <eq comment="false" id="1" x="0" y="0">
+                            <get-val-8-8 comment="false" id="0" x="0" y="0"/>
+                            <get-val-8-2 comment="false" id="1" x="0" y="0"/>
+                        </eq>
+                    </and>
+                </if>
+                <if comment="false" x="26" y="203">
+                    <group eventID="1" id="-1">
+                        <set-val-8-14 comment="false" x="37" y="233">
+                            <true comment="false" id="0" x="0" y="0"/>
+                        </set-val-8-14>
+                        <set-val-8-5 comment="false" x="37" y="258">
+                            <custom-29 comment="false" id="0" x="0" y="0"/>
+                        </set-val-8-5>
+                        <set-val-8-1 comment="false" x="37" y="283">
+                            <get-item comment="false" id="0" x="0" y="0">
+                                <get-val-8-5 comment="false" id="0" x="0" y="0"/>
+                                <int id="1" val="0"/>
+                            </get-item>
+                        </set-val-8-1>
+                        <set-val-8-2 comment="false" x="37" y="313">
+                            <get-item comment="false" id="0" x="0" y="0">
+                                <get-val-8-5 comment="false" id="0" x="0" y="0"/>
+                                <int id="1" val="1"/>
+                            </get-item>
+                        </set-val-8-2>
+                        <set-val-8-10 comment="false" x="37" y="343">
+                            <create-list comment="false" id="0" x="0" y="0"/>
+                        </set-val-8-10>
+                        <dolater comment="false" x="37" y="368">
+                            <group eventID="1" id="-1">
+                                <set-val-8-11 comment="false" x="48" y="395">
+                                    <get-game-val-0 comment="false" id="0" x="0" y="0"/>
+                                </set-val-8-11>
+                                <set-val-8-12 comment="false" x="48" y="420">
+                                    <scene-get-attribute comment="false" id="0" x="0" y="0">
+                                        <int id="0" val="Maze PM"/>
+                                        <int id="1" val="_MaxX"/>
+                                    </scene-get-attribute>
+                                </set-val-8-12>
+                                <set-val-8-13 comment="false" x="48" y="445">
+                                    <scene-get-attribute comment="false" id="0" x="0" y="0">
+                                        <int id="0" val="Maze PM"/>
+                                        <int id="1" val="_MaxY"/>
+                                    </scene-get-attribute>
+                                </set-val-8-13>
+                                <set-val-8-10 comment="false" x="48" y="470">
+                                    <int id="0" val="scripts.AStarPathFinder.getAStarPath(_LocalCollisionMap, Std.int(_MapWidth), Std.int(_MapHeight), Std.int(_XPosition), Std.int(_YPosition), Std.int(_GoalX), Std.int(_GoalY), false)"/>
+                                </set-val-8-10>
+                            </group>
+                            <int id="0" val="3"/>
+                            <ACTOR eid="this" id="2"/>
+                        </dolater>
+                    </group>
+                    <not comment="false" id="0" x="0" y="0">
+                        <get-val-8-14 comment="false" id="0" x="0" y="0"/>
+                    </not>
+                </if>
+                <if comment="false" x="26" y="514">
+                    <group eventID="1" id="-1">
+                        <set-val-8-15 comment="false" x="37" y="549">
+                            <int id="0" val="0"/>
+                        </set-val-8-15>
+                        <if comment="false" x="37" y="569">
+                            <group eventID="1" id="-1">
+                                <custom-code comment="false" x="48" y="609">
+                                    <int id="0" val="var nextNode = _Path.pop();"/>
+                                </custom-code>
+                                <set-val-8-7 comment="false" x="48" y="629">
+                                    <code-short comment="false" id="0" x="0" y="0">
+                                        <int id="0" val="nextNode.x"/>
+                                    </code-short>
+                                </set-val-8-7>
+                                <set-val-8-8 comment="false" x="48" y="654">
+                                    <code-short comment="false" id="0" x="0" y="0">
+                                        <int id="0" val="nextNode.y"/>
+                                    </code-short>
+                                </set-val-8-8>
+                            </group>
+                            <and comment="false" id="0" x="0" y="0">
+                                <value comment="false" id="0" x="0" y="0">
+                                    <int id="0" val="10"/>
+                                    <int id="1" val="0"/>
+                                </value>
+                                <more comment="false" id="1" x="0" y="0">
+                                    <length-list comment="false" id="0" x="0" y="0">
+                                        <get-val-8-10 comment="false" id="0" x="0" y="0"/>
+                                    </length-list>
+                                    <int id="1" val="0"/>
+                                </more>
+                            </and>
+                        </if>
+                    </group>
+                    <and comment="false" id="0" x="0" y="0">
+                        <more comment="false" id="0" x="0" y="0">
+                            <get-val-8-15 comment="false" id="0" x="0" y="0"/>
+                            <get-val-8-16 comment="false" id="1" x="0" y="0"/>
+                        </more>
+                        <get-val-8-17 comment="false" id="1" x="0" y="0"/>
+                    </and>
+                </if>
+                <else comment="false" x="26" y="703">
+                    <group eventID="1" id="-1">
+                        <incdec comment="false" x="37" y="723">
+                            <int id="0" val="15"/>
+                            <int id="1" val="0"/>
+                            <int id="2" val="1"/>
+                        </incdec>
+                    </group>
+                </else>
+                <custom-41 comment="false" x="26" y="762">
+                    <get-val-8-7 comment="false" id="0" x="0" y="0"/>
+                    <get-val-8-8 comment="false" id="1" x="0" y="0"/>
+                </custom-41>
+                <set-attribute comment="false" x="26" y="787">
+                    <ACTOR eid="this" id="0"/>
+                    <int id="1" val="Block Map Character PM"/>
+                    <int id="2" val="_XPosition"/>
+                    <get-val-8-7 comment="false" id="3" x="0" y="0"/>
+                </set-attribute>
+                <set-attribute comment="false" x="26" y="819">
+                    <ACTOR eid="this" id="0"/>
+                    <int id="1" val="Block Map Character PM"/>
+                    <int id="2" val="_YPosition"/>
+                    <get-val-8-8 comment="false" id="3" x="0" y="0"/>
+                </set-attribute>
+            </group>
+        </step>
+    </group>
+    <group eventID="1" id="-1"/>
+    <group eventID="3" id="0">
+        <receiver-2-19 comment="false" x="15" y="15">
+            <group eventID="3" id="-1">
+                <return comment="false" x="26" y="40">
+                    <abs comment="false" id="0" x="0" y="0">
+                        <minus comment="false" id="0" x="0" y="0">
+                            <get-val-8-1 comment="false" id="0" x="0" y="0"/>
+                            <get-val-8-7 comment="false" id="1" x="0" y="0"/>
+                        </minus>
+                    </abs>
+                </return>
+            </group>
+            <int id="0" val=""/>
+        </receiver-2-19>
+    </group>
+    <group eventID="3" id="-1"/>
+    <group eventID="4" id="0">
+        <receiver-4-21 comment="false" x="15" y="15">
+            <group eventID="4" id="-1">
+                <return comment="false" x="26" y="40">
+                    <abs comment="false" id="0" x="0" y="0">
+                        <minus comment="false" id="0" x="0" y="0">
+                            <get-val-8-2 comment="false" id="0" x="0" y="0"/>
+                            <get-val-8-8 comment="false" id="1" x="0" y="0"/>
+                        </minus>
+                    </abs>
+                </return>
+            </group>
+            <int id="0" val=""/>
+        </receiver-4-21>
+    </group>
+    <group eventID="4" id="-1"/>
+    <group eventID="5" id="0">
+        <receiver-5-22 comment="false" x="15" y="15">
+            <group eventID="5" id="-1">
+                <if comment="false" x="26" y="40">
+                    <group eventID="5" id="-1">
+                        <return comment="false" x="37" y="75">
+                            <int id="0" val="-1"/>
+                        </return>
+                    </group>
+                    <less comment="false" id="0" x="0" y="0">
+                        <minus comment="false" id="0" x="0" y="0">
+                            <get-val-8-1 comment="false" id="0" x="0" y="0"/>
+                            <get-val-8-7 comment="false" id="1" x="0" y="0"/>
+                        </minus>
+                        <int id="1" val="0"/>
+                    </less>
+                </if>
+                <else-if comment="false" x="26" y="107">
+                    <group eventID="5" id="-1">
+                        <return comment="false" x="37" y="142">
+                            <int id="0" val="1"/>
+                        </return>
+                    </group>
+                    <more comment="false" id="0" x="0" y="0">
+                        <minus comment="false" id="0" x="0" y="0">
+                            <get-val-8-1 comment="false" id="0" x="0" y="0"/>
+                            <get-val-8-8 comment="false" id="1" x="0" y="0"/>
+                        </minus>
+                        <int id="1" val="0"/>
+                    </more>
+                </else-if>
+                <return comment="false" x="26" y="174">
+                    <int id="0" val="0"/>
+                </return>
+            </group>
+            <int id="0" val=""/>
+        </receiver-5-22>
+    </group>
+    <group eventID="5" id="-1"/>
+    <group eventID="6" id="0">
+        <receiver-6-23 comment="false" x="15" y="15">
+            <group eventID="6" id="-1">
+                <if comment="false" x="26" y="40">
+                    <group eventID="5" id="-1">
+                        <return comment="false" x="37" y="75">
+                            <int id="0" val="-1"/>
+                        </return>
+                    </group>
+                    <less comment="false" id="0" x="0" y="0">
+                        <minus comment="false" id="0" x="0" y="0">
+                            <get-val-8-2 comment="false" id="0" x="0" y="0"/>
+                            <get-val-8-8 comment="false" id="1" x="0" y="0"/>
+                        </minus>
+                        <int id="1" val="0"/>
+                    </less>
+                </if>
+                <else-if comment="false" x="26" y="107">
+                    <group eventID="5" id="-1">
+                        <return comment="false" x="37" y="142">
+                            <int id="0" val="1"/>
+                        </return>
+                    </group>
+                    <more comment="false" id="0" x="0" y="0">
+                        <minus comment="false" id="0" x="0" y="0">
+                            <get-val-8-2 comment="false" id="0" x="0" y="0"/>
+                            <get-val-8-8 comment="false" id="1" x="0" y="0"/>
+                        </minus>
+                        <int id="1" val="0"/>
+                    </more>
+                </else-if>
+                <return comment="false" x="26" y="174">
+                    <int id="0" val="0"/>
+                </return>
+            </group>
+            <int id="0" val=""/>
+        </receiver-6-23>
+    </group>
+    <group eventID="6" id="-1"/>
+    <group eventID="7" id="0">
+        <init comment="false" x="15" y="15">
+            <group eventID="7" id="-1">
+                <if comment="false" x="26" y="40">
+                    <group eventID="7" id="-1">
+                        <set-val-8-5 comment="false" x="37" y="65">
+                            <custom-29 comment="false" id="0" x="0" y="0"/>
+                        </set-val-8-5>
+                        <set-val-8-7 comment="false" x="37" y="90">
+                            <get-item comment="false" id="0" x="0" y="0">
+                                <get-val-8-5 comment="false" id="0" x="0" y="0"/>
+                                <int id="1" val="0"/>
+                            </get-item>
+                        </set-val-8-7>
+                        <set-val-8-8 comment="false" x="37" y="120">
+                            <get-item comment="false" id="0" x="0" y="0">
+                                <get-val-8-5 comment="false" id="0" x="0" y="0"/>
+                                <int id="1" val="1"/>
+                            </get-item>
+                        </set-val-8-8>
+                        <set-attribute comment="false" x="37" y="150">
+                            <ACTOR eid="this" id="0"/>
+                            <int id="1" val="Block Map Character PM"/>
+                            <int id="2" val="_XPosition"/>
+                            <get-val-8-7 comment="false" id="3" x="0" y="0"/>
+                        </set-attribute>
+                        <set-attribute comment="false" x="37" y="182">
+                            <ACTOR eid="this" id="0"/>
+                            <int id="1" val="Block Map Character PM"/>
+                            <int id="2" val="_YPosition"/>
+                            <get-val-8-8 comment="false" id="3" x="0" y="0"/>
+                        </set-attribute>
+                    </group>
+                    <get-val-8-6 comment="false" id="0" x="0" y="0"/>
+                </if>
+                <custom-38 comment="false" x="26" y="226">
+                    <ACTOR eid="this" id="0"/>
+                </custom-38>
+            </group>
+        </init>
+    </group>
+    <group eventID="7" id="-1"/>
+</groups>

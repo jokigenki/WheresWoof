@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<groups>
+    <group eventID="5" id="0">
+        <step comment="false" x="15" y="15">
+            <group eventID="5" id="-1">
+                <set-val-3-1 comment="false" x="26" y="40">
+                    <get-attribute comment="false" id="0" x="0" y="0">
+                        <ACTOR eid="this" id="0"/>
+                        <int id="1" val="Block Map Character PM"/>
+                        <int id="2" val="_XPosition"/>
+                    </get-attribute>
+                </set-val-3-1>
+                <set-val-3-2 comment="false" x="26" y="73">
+                    <get-attribute comment="false" id="0" x="0" y="0">
+                        <ACTOR eid="this" id="0"/>
+                        <int id="1" val="Block Map Character PM"/>
+                        <int id="2" val="_YPosition"/>
+                    </get-attribute>
+                </set-val-3-2>
+                <set-val-3-7 comment="false" x="26" y="106">
+                    <int id="0" val="0"/>
+                </set-val-3-7>
+                <set-val-3-8 comment="false" x="26" y="126">
+                    <int id="0" val="0"/>
+                </set-val-3-8>
+                <if comment="false" x="26" y="146">
+                    <group eventID="5" id="-1">
+                        <incdec comment="false" x="37" y="179">
+                            <int id="0" val="7"/>
+                            <int id="1" val="1"/>
+                            <int id="2" val="1"/>
+                        </incdec>
+                    </group>
+                    <keystate comment="false" id="0" x="0" y="0">
+                        <int id="0" val="0"/>
+                        <CONTROL eid="2" id="1"/>
+                    </keystate>
+                </if>
+                <if comment="false" x="26" y="218">
+                    <group eventID="5" id="-1">
+                        <incdec comment="false" x="37" y="251">
+                            <int id="0" val="7"/>
+                            <int id="1" val="0"/>
+                            <int id="2" val="1"/>
+                        </incdec>
+                    </group>
+                    <keystate comment="false" id="0" x="0" y="0">
+                        <int id="0" val="0"/>
+                        <CONTROL eid="3" id="1"/>
+                    </keystate>
+                </if>
+                <if comment="false" x="26" y="290">
+                    <group eventID="5" id="-1">
+                        <incdec comment="false" x="37" y="323">
+                            <int id="0" val="8"/>
+                            <int id="1" val="1"/>
+                            <int id="2" val="1"/>
+                        </incdec>
+                    </group>
+                    <keystate comment="false" id="0" x="0" y="0">
+                        <int id="0" val="0"/>
+                        <CONTROL eid="0" id="1"/>
+                    </keystate>
+                </if>
+                <if comment="false" x="26" y="362">
+                    <group eventID="5" id="-1">
+                        <incdec comment="false" x="37" y="395">
+                            <int id="0" val="8"/>
+                            <int id="1" val="0"/>
+                            <int id="2" val="1"/>
+                        </incdec>
+                    </group>
+                    <keystate comment="false" id="0" x="0" y="0">
+                        <int id="0" val="0"/>
+                        <CONTROL eid="1" id="1"/>
+                    </keystate>
+                </if>
+                <if comment="false" x="26" y="434">
+                    <group eventID="5" id="-1">
+                        <set-val-3-10 comment="false" x="37" y="469">
+                            <int id="0" val="0"/>
+                        </set-val-3-10>
+                    </group>
+                    <and comment="false" id="0" x="0" y="0">
+                        <eq comment="false" id="0" x="0" y="0">
+                            <get-val-3-7 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="0"/>
+                        </eq>
+                        <eq comment="false" id="1" x="0" y="0">
+                            <get-val-3-8 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="0"/>
+                        </eq>
+                    </and>
+                </if>
+                <if comment="false" x="26" y="501">
+                    <group eventID="5" id="-1">
+                        <set-val-3-10 comment="false" x="37" y="531">
+                            <int id="0" val="0"/>
+                        </set-val-3-10>
+                        <if comment="false" x="37" y="551">
+                            <group eventID="1" id="-1">
+                                <custom-40 comment="false" x="48" y="586">
+                                    <get-val-3-1 comment="false" id="0" x="0" y="0"/>
+                                    <get-val-3-2 comment="false" id="1" x="0" y="0"/>
+                                </custom-40>
+                                <set-val-3-1 comment="false" x="48" y="611">
+                                    <plus comment="false" id="0" x="0" y="0">
+                                        <get-val-3-1 comment="false" id="0" x="0" y="0"/>
+                                        <get-val-3-7 comment="false" id="1" x="0" y="0"/>
+                                    </plus>
+                                </set-val-3-1>
+                                <set-val-3-2 comment="false" x="48" y="641">
+                                    <plus comment="false" id="0" x="0" y="0">
+                                        <get-val-3-2 comment="false" id="0" x="0" y="0"/>
+                                        <get-val-3-8 comment="false" id="1" x="0" y="0"/>
+                                    </plus>
+                                </set-val-3-2>
+                            </group>
+                            <custom-6 comment="false" id="0" x="0" y="0">
+                                <plus comment="false" id="0" x="0" y="0">
+                                    <get-val-3-1 comment="false" id="0" x="0" y="0"/>
+                                    <get-val-3-7 comment="false" id="1" x="0" y="0"/>
+                                </plus>
+                                <plus comment="false" id="1" x="0" y="0">
+                                    <get-val-3-2 comment="false" id="0" x="0" y="0"/>
+                                    <get-val-3-8 comment="false" id="1" x="0" y="0"/>
+                                </plus>
+                            </custom-6>
+                        </if>
+                    </group>
+                    <eq comment="false" id="0" x="0" y="0">
+                        <get-val-3-10 comment="false" id="0" x="0" y="0"/>
+                        <get-val-3-9 comment="false" id="1" x="0" y="0"/>
+                    </eq>
+                </if>
+                <else comment="false" x="26" y="695">
+                    <group eventID="5" id="-1">
+                        <incdec comment="false" x="37" y="715">
+                            <int id="0" val="10"/>
+                            <int id="1" val="0"/>
+                            <int id="2" val="1"/>
+                        </incdec>
+                    </group>
+                </else>
+                <custom-5 comment="false" x="26" y="754">
+                    <get-val-3-1 comment="false" id="0" x="0" y="0"/>
+                    <get-val-3-2 comment="false" id="1" x="0" y="0"/>
+                </custom-5>
+                <custom-41 comment="false" x="26" y="779">
+                    <get-val-3-1 comment="false" id="0" x="0" y="0"/>
+                    <get-val-3-2 comment="false" id="1" x="0" y="0"/>
+                </custom-41>
+                <set-attribute comment="false" x="26" y="804">
+                    <ACTOR eid="this" id="0"/>
+                    <int id="1" val="Block Map Character PM"/>
+                    <int id="2" val="_XPosition"/>
+                    <get-val-3-1 comment="false" id="3" x="0" y="0"/>
+                </set-attribute>
+                <set-attribute comment="false" x="26" y="836">
+                    <ACTOR eid="this" id="0"/>
+                    <int id="1" val="Block Map Character PM"/>
+                    <int id="2" val="_YPosition"/>
+                    <get-val-3-2 comment="false" id="3" x="0" y="0"/>
+                </set-attribute>
+            </group>
+        </step>
+    </group>
+    <group eventID="5" id="-1"/>
+    <group eventID="6" id="0">
+        <init comment="false" x="15" y="15">
+            <group eventID="6" id="-1">
+                <set-val-3-10 comment="false" x="26" y="40">
+                    <int id="0" val="0"/>
+                </set-val-3-10>
+                <custom-38 comment="false" x="26" y="60">
+                    <ACTOR eid="this" id="0"/>
+                </custom-38>
+            </group>
+        </init>
+    </group>
+    <group eventID="6" id="-1"/>
+</groups>

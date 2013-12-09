@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<groups>
+    <group eventID="1" id="0">
+        <draw comment="false" x="15" y="15">
+            <group eventID="1" id="-1">
+                <to-local-space comment="false" x="26" y="40">
+                    <ACTOR eid="this" id="0"/>
+                </to-local-space>
+                <set-font-new comment="false" x="26" y="67">
+                    <FONT eid="var" id="0" vid="7"/>
+                </set-font-new>
+                <set-val-20-8 comment="false" x="26" y="94">
+                    <int id="0" val="0"/>
+                </set-val-20-8>
+                <set-val-20-10 comment="false" x="26" y="114">
+                    <str-split comment="false" id="0" x="0" y="0">
+                        <get-val-20-3 comment="false" id="0" x="0" y="0"/>
+                        <int id="1" val="|"/>
+                    </str-split>
+                </set-val-20-10>
+                <for-each comment="false" x="26" y="144">
+                    <group eventID="1" id="-1">
+                        <set-val-20-6 comment="false" x="37" y="169">
+                            <int id="0" val="0"/>
+                        </set-val-20-6>
+                        <set-val-20-11 comment="false" x="37" y="189">
+                            <for-each-item comment="false" id="0" x="0" y="0"/>
+                        </set-val-20-11>
+                        <while comment="false" x="37" y="214">
+                            <group eventID="1" id="-1">
+                                <set-val-20-2 comment="false" x="48" y="249">
+                                    <int id="0" val=""/>
+                                </set-val-20-2>
+                                <set-val-20-5 comment="false" x="48" y="269">
+                                    <get-val-20-6 comment="false" id="0" x="0" y="0"/>
+                                </set-val-20-5>
+                                <while comment="false" x="48" y="294">
+                                    <group eventID="1" id="-1">
+                                        <incdec comment="false" x="59" y="334">
+                                            <int id="0" val="6"/>
+                                            <int id="1" val="0"/>
+                                            <int id="2" val="1"/>
+                                        </incdec>
+                                        <set-val-20-2 comment="false" x="59" y="361">
+                                            <str-substring comment="false" id="0" x="0" y="0">
+                                                <get-val-20-11 comment="false" id="0" x="0" y="0"/>
+                                                <get-val-20-5 comment="false" id="1" x="0" y="0"/>
+                                                <get-val-20-6 comment="false" id="2" x="0" y="0"/>
+                                            </str-substring>
+                                        </set-val-20-2>
+                                    </group>
+                                    <and comment="false" id="0" x="0" y="0">
+                                        <less comment="false" id="0" x="0" y="0">
+                                            <get-font-width comment="false" id="0" x="0" y="0">
+                                                <get-val-20-2 comment="false" id="0" x="0" y="0"/>
+                                            </get-font-width>
+                                            <get-val-20-1 comment="false" id="1" x="0" y="0"/>
+                                        </less>
+                                        <less comment="false" id="1" x="0" y="0">
+                                            <get-val-20-6 comment="false" id="0" x="0" y="0"/>
+                                            <str-length comment="false" id="1" x="0" y="0">
+                                                <get-val-20-11 comment="false" id="0" x="0" y="0"/>
+                                            </str-length>
+                                        </less>
+                                    </and>
+                                </while>
+                                <set-val-20-9 comment="false" x="48" y="403">
+                                    <get-val-20-2 comment="false" id="0" x="0" y="0"/>
+                                </set-val-20-9>
+                                <if comment="false" x="48" y="428">
+                                    <group eventID="1" id="-1">
+                                        <while comment="false" x="59" y="463">
+                                            <group eventID="1" id="-1">
+                                                <set-val-20-9 comment="false" x="70" y="513">
+                                                    <str-substring comment="false" id="0" x="0" y="0">
+                                                        <get-val-20-9 comment="false" id="0" x="0" y="0"/>
+                                                        <int id="1" val="0"/>
+                                                        <minus comment="false" id="2" x="0" y="0">
+                                                            <str-length comment="false" id="0" x="0" y="0">
+                                                                <get-val-20-9 comment="false" id="0" x="0" y="0"/>
+                                                            </str-length>
+                                                            <int id="1" val="1"/>
+                                                        </minus>
+                                                    </str-substring>
+                                                </set-val-20-9>
+                                            </group>
+                                            <and comment="false" id="0" x="0" y="0">
+                                                <more comment="false" id="0" x="0" y="0">
+                                                    <str-length comment="false" id="0" x="0" y="0">
+                                                        <get-val-20-9 comment="false" id="0" x="0" y="0"/>
+                                                    </str-length>
+                                                    <int id="1" val="0"/>
+                                                </more>
+                                                <noteq comment="false" id="1" x="0" y="0">
+                                                    <str-char-at comment="false" id="0" x="0" y="0">
+                                                        <get-val-20-9 comment="false" id="0" x="0" y="0"/>
+                                                        <minus comment="false" id="1" x="0" y="0">
+                                                            <str-length comment="false" id="0" x="0" y="0">
+                                                                <get-val-20-9 comment="false" id="0" x="0" y="0"/>
+                                                            </str-length>
+                                                            <int id="1" val="1"/>
+                                                        </minus>
+                                                    </str-char-at>
+                                                    <int id="1" val=" "/>
+                                                </noteq>
+                                            </and>
+                                        </while>
+                                    </group>
+                                    <less comment="false" id="0" x="0" y="0">
+                                        <get-val-20-6 comment="false" id="0" x="0" y="0"/>
+                                        <str-length comment="false" id="1" x="0" y="0">
+                                            <get-val-20-11 comment="false" id="0" x="0" y="0"/>
+                                        </str-length>
+                                    </less>
+                                </if>
+                                <if comment="false" x="48" y="577">
+                                    <group eventID="1" id="-1">
+                                        <set-val-20-2 comment="false" x="59" y="612">
+                                            <str-substring comment="false" id="0" x="0" y="0">
+                                                <get-val-20-2 comment="false" id="0" x="0" y="0"/>
+                                                <int id="1" val="0"/>
+                                                <minus comment="false" id="2" x="0" y="0">
+                                                    <str-length comment="false" id="0" x="0" y="0">
+                                                        <get-val-20-2 comment="false" id="0" x="0" y="0"/>
+                                                    </str-length>
+                                                    <int id="1" val="1"/>
+                                                </minus>
+                                            </str-substring>
+                                        </set-val-20-2>
+                                        <incdec comment="false" x="59" y="652">
+                                            <int id="0" val="6"/>
+                                            <int id="1" val="1"/>
+                                            <int id="2" val="1"/>
+                                        </incdec>
+                                    </group>
+                                    <eq comment="false" id="0" x="0" y="0">
+                                        <str-length comment="false" id="0" x="0" y="0">
+                                            <get-val-20-9 comment="false" id="0" x="0" y="0"/>
+                                        </str-length>
+                                        <int id="1" val="0"/>
+                                    </eq>
+                                </if>
+                                <else comment="false" x="48" y="691">
+                                    <group eventID="1" id="-1">
+                                        <incdec comment="false" x="59" y="711">
+                                            <int id="0" val="6"/>
+                                            <int id="1" val="1"/>
+                                            <minus comment="false" id="2" x="0" y="0">
+                                                <str-length comment="false" id="0" x="0" y="0">
+                                                    <get-val-20-2 comment="false" id="0" x="0" y="0"/>
+                                                </str-length>
+                                                <str-length comment="false" id="1" x="0" y="0">
+                                                    <get-val-20-9 comment="false" id="0" x="0" y="0"/>
+                                                </str-length>
+                                            </minus>
+                                        </incdec>
+                                        <set-val-20-2 comment="false" x="59" y="753">
+                                            <get-val-20-9 comment="false" id="0" x="0" y="0"/>
+                                        </set-val-20-2>
+                                    </group>
+                                </else>
+                                <draw-text comment="false" x="48" y="790">
+                                    <get-val-20-2 comment="false" id="0" x="0" y="0"/>
+                                    <int id="1" val="0"/>
+                                    <get-val-20-8 comment="false" id="2" x="0" y="0"/>
+                                </draw-text>
+                                <if comment="false" x="48" y="815">
+                                    <group eventID="1" id="-1">
+                                        <incdec comment="false" x="59" y="845">
+                                            <int id="0" val="8"/>
+                                            <int id="1" val="0"/>
+                                            <get-val-20-12 comment="false" id="2" x="0" y="0"/>
+                                        </incdec>
+                                    </group>
+                                    <more comment="false" id="0" x="0" y="0">
+                                        <get-val-20-12 comment="false" id="0" x="0" y="0"/>
+                                        <int id="1" val="0"/>
+                                    </more>
+                                </if>
+                                <else comment="false" x="48" y="889">
+                                    <group eventID="1" id="-1">
+                                        <incdec comment="false" x="59" y="909">
+                                            <int id="0" val="8"/>
+                                            <int id="1" val="0"/>
+                                            <get-font-height comment="false" id="2" x="0" y="0"/>
+                                        </incdec>
+                                    </group>
+                                </else>
+                            </group>
+                            <less comment="false" id="0" x="0" y="0">
+                                <get-val-20-6 comment="false" id="0" x="0" y="0"/>
+                                <str-length comment="false" id="1" x="0" y="0">
+                                    <get-val-20-11 comment="false" id="0" x="0" y="0"/>
+                                </str-length>
+                            </less>
+                        </while>
+                    </group>
+                    <get-val-20-10 comment="false" id="0" x="0" y="0"/>
+                </for-each>
+            </group>
+        </draw>
+    </group>
+    <group eventID="1" id="-1"/>
+    <group eventID="2" id="0">
+        <init comment="false" x="15" y="15">
+            <group eventID="2" id="-1">
+                <toggle-image comment="false" x="26" y="40">
+                    <ACTOR eid="this" id="0"/>
+                    <int id="1" val="1"/>
+                </toggle-image>
+            </group>
+        </init>
+    </group>
+    <group eventID="2" id="-1"/>
+</groups>

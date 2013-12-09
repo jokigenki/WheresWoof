@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<groups>
+    <group eventID="3" id="0">
+        <receiver-2-25 comment="false" x="9" y="20">
+            <group eventID="3" id="-1">
+                <code-long comment="false" x="20" y="50">
+                    <int id="0" val="var timeout = 10000;&#10;var loopCount = 0;&#10;&#10;var startBlock = new Node(__StartX, __StartY);&#10;var goalBlock = new Node(__GoalX, __GoalY);&#10;var closedList = [startBlock];&#10;var openList = cast((scripts.Design_9_9_PathfindingExtrasPM._customBlock_GetValidSquares(__BlockList,__MapWidth,__MapHeight,__StartX,__StartY, closedList)), Array&amp;lt;Dynamic&amp;gt;);&#10;&#10;while (!failed &amp;amp;&amp;amp; !startBlock.matches(goalBlock.x, goalBlock.y))&#10;{&#10;&#9;count++;&#10;&#9;if (count == timeout) failed = true;&#10;&#9;if (openList.length == 0)&#10;&#9;{&#10;&#9;&#9;var oldBlock = startBlock;&#10;&#9;&#9;startBlock = parents[startBlock];&#10;&#9;&#9;if (startBlock.matches(oldBlock.x, oldBlock.y)) failed = true;&#10;&#9;} else {&#10;&#9;&#9;for (block in openList)&#10;&#9;&#9;{&#10;&#9;&#9;&#9;block.parent = startBlock;&#10;&#9;&#9;}&#10;&#9;&#9;&#10;&#9;&#9;var bestBlock;&#10;&#9;&#9;var bestH = 9999999;&#10;&#9;&#9;for (block in cast(openList, Array&amp;lt;Dynamic&amp;gt;))&#10;&#9;&#9;{&#10;&#9;&#9;&#9;var distanceX = GoalX - StartX;&#10;&#9;&#9;&#9;var distanceY = GoalY - StartY;&#10;&#9;&#9;&#9;if (distanceX &amp;lt; 0) distanceX = -distanceX;&#10;&#9;&#9;&#9;if (distanceY &amp;lt; 0) distanceY = -distanceY;&#10;&#9;&#9;&#9;var h = (distanceX + distanceY) * 10;&#10;&#9;&#9;&#9;if (h &amp;lt; bestH)&#10;&#9;&#9;&#9;{&#10;&#9;&#9;&#9;&#9;bestBlock = block;&#10;&#9;&#9;&#9;&#9;bestH = k;&#10;&#9;&#9;&#9;}&#10;&#9;&#9;}&#10;&#10;&#9;&#9;startBlock = bestBlock;&#10;&#9;&#9;closed.push(startBlock);&#10;&#9;}&#10;}&#10;if (failed) return [];&#10;&#10;var path = [];&#10;var pathBlock = closed[closed.length - 1];&#10;while (!pathBlock.matches(__StartX, __StartY))&#10;{&#10;&#9;path.push(pathBlock);&#10;&#9;pathBlock = parents[closed];&#10;}&#10;&#10;return path;"/>
+                </code-long>
+            </group>
+            <get-byobval-9-25-0 comment="false" id="0" x="0" y="0"/>
+            <get-byobval-9-25-1 comment="false" id="1" x="0" y="0"/>
+            <get-byobval-9-25-2 comment="false" id="2" x="0" y="0"/>
+            <get-byobval-9-25-3 comment="false" id="3" x="0" y="0"/>
+            <get-byobval-9-25-4 comment="false" id="4" x="0" y="0"/>
+            <get-byobval-9-25-5 comment="false" id="5" x="0" y="0"/>
+            <get-byobval-9-25-6 comment="false" id="6" x="0" y="0"/>
+        </receiver-2-25>
+    </group>
+    <group eventID="3" id="-1"/>
+    <group eventID="6" id="0">
+        <receiver-5-28 comment="false" x="15" y="15">
+            <group eventID="6" id="-1">
+                <code-long comment="false" x="26" y="45">
+                    <int id="0" val="var valid = [];&#10;var target;&#10;var closed = false;&#10;// left&#10;if (StartX &amp;gt; 0) {&#10;&#9;target = __BlockList[(StartY * Width) + StartX - 1];&#10;&#9;if (target == 0)&#10;&#9;{&#10;&#9;&#9;closed = false;&#10;&#9;&#9;for (item in cast(__ClosedList, Array&amp;lt;Dynamic&amp;gt;))&#10;          {&#10;          &#9;if (item.x == StartX - 1 &amp;amp;&amp;amp; item.y == StartY)&#10;          &#9;{&#10;          &#9;&#9;closed = true;&#10;          &#9;&#9;break;&#10;          &#9;}&#10;          }&#10;&#9;&#9;if (!closed) valid.push(new Node(StartX - 1, StartY));&#10;&#9;}&#10;&#9;/*&#10;&#9;if (StartY &amp;gt; 0) {&#10;&#9;&#9;target = __BlockList[((StartY - 1)* Width) + StartX - 1];&#10;&#9;&#9;if (target == 0) valid.push(new Point(StartX - 1, StartY - 1));&#10;&#9;}&#10;&#9;if (StartY &amp;lt; Height) {&#10;&#9;&#9;target = __BlockList[((StartY + 1)* Width) + StartX - 1];&#10;&#9;&#9;if (target == 0) valid.push(new Point(StartX - 1, StartY + 1));&#10;&#9;}&#10;&#9;*/&#10;}"/>
+                </code-long>
+                <code-long comment="false" x="26" y="205">
+                    <int id="0" val="// right&#10;if (StartX &amp;lt; Width) {&#10;&#9;target = __BlockList[(StartY * Width) + StartX + 1];&#10;&#9;if (target == 0)&#10;&#9;{&#10;&#9;&#9;closed = false;&#10;&#9;&#9;for (item in cast(__ClosedList, Array&amp;lt;Dynamic&amp;gt;))&#10;          {&#10;          &#9;if (item.x == StartX + 1 &amp;amp;&amp;amp; item.y == StartY)&#10;          &#9;{&#10;          &#9;&#9;closed = true;&#10;          &#9;&#9;break;&#10;          &#9;}&#10;          }&#10;&#9;&#9;if (!closed) valid.push(new Node(StartX + 1, StartY));&#10;&#9;}&#10;&#9;/*&#10;&#9;if (StartY &amp;gt; 0) {&#10;&#9;&#9;target = __BlockList[((StartY - 1)* Width) + StartX + 1];&#10;&#9;&#9;if (target == 0) valid.push(new Point(StartX + 1, StartY - 1));&#10;&#9;}&#10;&#9;if (StartY &amp;lt; Height) {&#10;&#9;&#9;target = __BlockList[((StartY + 1)* Width) + StartX + 1];&#10;&#9;&#9;if (target == 0) valid.push(new Point(StartX - 1, StartY + 1));&#10;&#9;}&#10;&#9;*/&#10;}"/>
+                </code-long>
+                <code-long comment="false" x="26" y="365">
+                    <int id="0" val="// mid&#10;if (StartY &amp;gt; 0) {&#10;&#9;target = __BlockList[((StartY - 1)* Width) + StartX];&#10;&#9;if (target == 0)&#10;&#9;{&#10;&#9;&#9;closed = false;&#10;&#9;&#9;for (item in cast(__ClosedList, Array&amp;lt;Dynamic&amp;gt;))&#10;          {&#10;          &#9;if (item.x == StartX &amp;amp;&amp;amp; item.y == StartY - 1)&#10;          &#9;{&#10;          &#9;&#9;closed = true;&#10;          &#9;&#9;break;&#10;          &#9;}&#10;          }&#10;&#9;&#9;if (!closed) valid.push(new Node(StartX, StartY - 1));&#10;&#9;}&#10;}&#10;if (StartY &amp;lt; Height) {&#10;&#9;target = __BlockList[((StartY + 1)* Width) + StartX];&#10;&#9;if (target == 0)&#10;&#9;{&#10;&#9;&#9;closed = false;&#10;&#9;&#9;for (item in cast(__ClosedList, Array&amp;lt;Dynamic&amp;gt;))&#10;          {&#10;          &#9;if (item.x == StartX &amp;amp;&amp;amp; item.y == StartY + 1)&#10;          &#9;{&#10;          &#9;&#9;closed = true;&#10;          &#9;&#9;break;&#10;          &#9;}&#10;          }&#10;&#9;&#9;if (!closed) valid.push(new Node(StartX, StartY + 1));&#10;&#9;}&#10;}"/>
+                </code-long>
+                <custom-code comment="false" x="26" y="525">
+                    <int id="0" val="return valid;"/>
+                </custom-code>
+            </group>
+            <get-byobval-9-28-0 comment="false" id="0" x="0" y="0"/>
+            <get-byobval-9-28-1 comment="false" id="1" x="0" y="0"/>
+            <get-byobval-9-28-2 comment="false" id="2" x="0" y="0"/>
+            <get-byobval-9-28-3 comment="false" id="3" x="0" y="0"/>
+            <get-byobval-9-28-4 comment="false" id="4" x="0" y="0"/>
+            <get-byobval-9-28-5 comment="false" id="5" x="0" y="0"/>
+        </receiver-5-28>
+    </group>
+    <group eventID="6" id="-1"/>
+</groups>

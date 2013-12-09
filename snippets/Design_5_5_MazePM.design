@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<groups>
+    <group eventID="1" id="0">
+        <init comment="false" x="15" y="15">
+            <group eventID="1" id="-1">
+                <set-val-1-21 comment="false" x="26" y="40">
+                    <create-list comment="false" id="0" x="0" y="0"/>
+                </set-val-1-21>
+                <set-val-1-24 comment="false" x="26" y="65">
+                    <create-list comment="false" id="0" x="0" y="0"/>
+                </set-val-1-24>
+                <set-val-1-4 comment="false" x="26" y="90">
+                    <int id="0" val="-1"/>
+                </set-val-1-4>
+                <set-val-1-5 comment="false" x="26" y="110">
+                    <int id="0" val="-1"/>
+                </set-val-1-5>
+                <set-val-1-2 comment="false" x="26" y="130">
+                    <int id="0" val="0"/>
+                </set-val-1-2>
+                <set-val-1-3 comment="false" x="26" y="150">
+                    <int id="0" val="0"/>
+                </set-val-1-3>
+                <set-val-1-8 comment="false" x="26" y="170">
+                    <roundnew comment="false" id="0" x="0" y="0">
+                        <int id="0" val="2"/>
+                        <div comment="false" id="1" x="0" y="0">
+                            <screen-wh comment="false" id="0" x="0" y="0">
+                                <int id="0" val="0"/>
+                            </screen-wh>
+                            <tile-wh comment="false" id="1" x="0" y="0">
+                                <int id="0" val="0"/>
+                            </tile-wh>
+                        </div>
+                    </roundnew>
+                </set-val-1-8>
+                <set-val-1-9 comment="false" x="26" y="221">
+                    <roundnew comment="false" id="0" x="0" y="0">
+                        <int id="0" val="2"/>
+                        <div comment="false" id="1" x="0" y="0">
+                            <screen-wh comment="false" id="0" x="0" y="0">
+                                <int id="0" val="1"/>
+                            </screen-wh>
+                            <tile-wh comment="false" id="1" x="0" y="0">
+                                <int id="0" val="1"/>
+                            </tile-wh>
+                        </div>
+                    </roundnew>
+                </set-val-1-9>
+                <set-val-1-14 comment="false" x="26" y="272">
+                    <create-list comment="false" id="0" x="0" y="0"/>
+                </set-val-1-14>
+                <set-val-1-15 comment="false" x="26" y="297">
+                    <create-list comment="false" id="0" x="0" y="0"/>
+                </set-val-1-15>
+                <code-long comment="false" x="26" y="322">
+                    <int id="0" val="// outer walls!&#10;for (y in 0...Std.int(_MaxY))&#10;{&#10;&#9;for (x in 0...Std.int(_MaxX))&#10;     {&#10;     &#9;var pos = cast((sayToScene(&amp;quot;Maze PM&amp;quot;, &amp;quot;_customBlock_GetListPositionFromXY&amp;quot;, [x, y])), Int);&#10;          _WallList[pos] = 1;&#10;         &#10;&#9;&#9;// put the entrance door in!&#10;          if (y == 0 &amp;amp;&amp;amp; x &amp;gt; 95 &amp;amp;&amp;amp; x &amp;lt; 101)&#10;          {&#10;          &#9;_WallList[pos] = 0;&#10;          }&#10;      }&#10;}"/>
+                </code-long>
+                <code-long comment="false" x="26" y="482">
+                    <int id="0" val="var blockSize = 5;&#10;var minMove = 3;&#10;var border = (minMove * blockSize) + 2;&#10;var directionX = 0;&#10;var directionY = minMove;&#10;var currentXPosition = _PlayerStartX - 2;&#10;var currentYPosition = _PlayerStartY + 1;&#10;var lastX = directionX;&#10;var lastY = directionY;&#10;&#10;//roads&#10;for (c in 0...400)&#10;{&#9;&#10;&#9;var blocksX = directionX == 0 ? blockSize : minMove * blockSize;&#10;&#9;var blocksY = directionY == 0 ? blockSize : minMove * blockSize;&#10;&#9;var startX = directionX &amp;lt; 0 ? currentXPosition - (blocksX - blockSize) : currentXPosition;&#10;&#9;var startY = directionY &amp;lt; 0 ? currentYPosition - (blocksY - blockSize) : currentYPosition;&#10;&#10;&#9;sayToScene(&amp;quot;Maze PM&amp;quot;, &amp;quot;_customBlock_SetTilesToValue&amp;quot;, [blocksX,blocksY,startX,startY,0]);&#10;&#9;currentXPosition += directionX * blockSize;&#10;&#9;currentYPosition += directionY * blockSize;&#10;&#9;&#10;&#9;if (lastX == -directionX &amp;amp;&amp;amp; lastX != 0) trace (&amp;quot;FLIPPED X&amp;quot;);&#10;&#9;if (lastY == -directionY &amp;amp;&amp;amp; lastY != 0) trace (&amp;quot;FLIPPED Y&amp;quot;);&#10;&#10;&#9;lastX = directionX;&#10;&#9;lastY = directionY;&#10;&#9;&#10;&#9;// if moving left&#10;&#9;if (directionX == -minMove)&#10;&#9;{&#10;&#9;&#9;// if on the left edge&#10;&#9;&#9;if (currentXPosition &amp;lt; border)&#10;&#9;&#9;{&#10;&#9;&#9;&#9;// handle corners&#10;&#9;&#9;&#9;if (currentYPosition &amp;lt; border)&#10;&#9;&#9;&#9;{&#10;&#9;&#9;&#9;&#9;directionX = 0;&#10;&#9;&#9;&#9;&#9;directionY = minMove;&#10;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;else if (currentYPosition &amp;gt; _MaxY - border)&#10;&#9;&#9;&#9;{&#10;&#9;&#9;&#9;&#9;directionX = 0;&#10;&#9;&#9;&#9;&#9;directionY = -minMove;&#10;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;else if (Math.random() &amp;lt; 0.5)&#10;&#9;&#9;&#9;{&#10;&#9;&#9;&#9;&#9;directionX = 0;&#10;&#9;&#9;&#9;&#9;directionY = -minMove;&#10;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;else &#10;&#9;&#9;&#9;{&#10;&#9;&#9;&#9;&#9;directionX = 0;&#10;&#9;&#9;&#9;&#9;directionY = minMove;&#10;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;&#10;&#9;&#9;}&#10;&#9;&#9;else if (currentYPosition &amp;lt; _MaxY - border &amp;amp;&amp;amp; Math.random() &amp;lt; 0.25)&#10;&#9;&#9;{&#10;&#9;&#9;&#9;directionX = 0;&#10;&#9;&#9;&#9;directionY = minMove;&#10;&#9;&#9;}&#10;&#9;&#9;else if (currentYPosition &amp;gt; border &amp;amp;&amp;amp; Math.random() &amp;lt; 0.5)&#10;&#9;&#9;{&#10;&#9;&#9;&#9;directionX = 0;&#10;&#9;&#9;&#9;directionY = -minMove;&#10;&#9;&#9;}&#10;&#9;}&#10;&#9;&#10;&#9;// if moving right&#10;&#9;else if (directionX == minMove)&#10;&#9;{&#10;&#9;&#9;// if on the right edge&#10;&#9;&#9;if (currentXPosition &amp;gt; _MaxX - border)&#10;&#9;&#9;{&#10;&#9;&#9;&#9;if (currentYPosition &amp;lt; border)&#10;&#9;&#9;&#9;{&#10;&#9;&#9;&#9;&#9;directionX = 0;&#10;&#9;&#9;&#9;&#9;directionY = minMove;&#10;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;else if (currentYPosition &amp;gt; _MaxY - border)&#10;&#9;&#9;&#9;{&#10;&#9;&#9;&#9;&#9;directionX = 0;&#10;&#9;&#9;&#9;&#9;directionY = -minMove;&#10;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;else if (Math.random() &amp;lt; 0.5)&#10;&#9;&#9;     {&#10;&#9;&#9;         directionX = 0;&#10;&#9;&#9;         directionY = -minMove;&#10;&#9;&#9;     }&#10;&#9;&#9;     else&#10;&#9;&#9;     {&#10;&#9;&#9;         directionX = 0;&#10;&#9;&#9;         directionY = minMove;&#10;&#9;&#9;     }&#10;&#9;&#9;} &#10;&#9;&#9;else if (currentYPosition &amp;lt; _MaxY - border &amp;amp;&amp;amp; Math.random() &amp;lt; 0.25)&#10;&#9;&#9;{&#10;&#9;&#9;&#9;directionX = 0;&#10;&#9;&#9;&#9;directionY = minMove;&#10;&#9;&#9;}&#10;&#9;&#9;else if (currentYPosition &amp;gt; border &amp;amp;&amp;amp; Math.random() &amp;lt; 0.5)&#10;&#9;&#9;{&#10;&#9;&#9;&#9;directionX = 0;&#10;&#9;&#9;&#9;directionY = -minMove;&#10;&#9;&#9;}&#10;&#9;}&#10;&#10;&#9;&#10;&#9;// if moving up&#10;&#9;else if (directionY == -minMove)&#10;&#9;{&#10;&#9;&#9;// if on the left edge&#10;&#9;&#9;if (currentYPosition &amp;lt; border)&#10;&#9;&#9;{&#10;&#9;&#9;&#9;if (currentXPosition &amp;lt; border)&#10;&#9;&#9;&#9;{&#10;&#9;&#9;&#9;&#9;directionX = minMove;&#10;&#9;&#9;&#9;&#9;directionY = 0;&#10;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;else if (currentXPosition &amp;gt; _MaxX - border)&#10;&#9;&#9;&#9;{&#10;&#9;&#9;&#9;&#9;directionX = -minMove;&#10;&#9;&#9;&#9;&#9;directionY = 0;&#10;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;else if (Math.random() &amp;lt; 0.5)&#10;&#9;&#9;     {&#10;&#9;&#9;         directionX = -minMove;&#10;&#9;&#9;         directionY = 0;&#10;&#9;&#9;     }&#10;&#9;&#9;     else&#10;&#9;&#9;     {&#10;&#9;&#9;         directionX = minMove;&#10;&#9;&#9;         directionY = 0;&#10;&#9;&#9;     }&#10;&#9;&#9;}&#10;&#9;&#9;else if (currentXPosition &amp;lt; _MaxX - border &amp;amp;&amp;amp; Math.random() &amp;lt; 0.25)&#10;&#9;&#9;{&#10;&#9;&#9;&#9;directionX = minMove;&#10;&#9;&#9;&#9;directionY = 0;&#10;&#9;&#9;}&#10;&#9;&#9;else if (currentXPosition &amp;gt; border &amp;amp;&amp;amp; Math.random() &amp;lt; 0.5)&#10;&#9;&#9;{&#10;&#9;&#9;&#9;directionX = -minMove;&#10;&#9;&#9;&#9;directionY = 0;&#10;&#9;&#9;}&#10;&#9;}&#10;&#9;&#10;&#9;// if moving down&#10;&#9;else if (directionY == minMove)&#10;&#9;{&#10;&#9;&#9;// if on the bottom edge&#10;&#9;&#9;if (currentYPosition &amp;gt; _MaxY - border)&#10;&#9;&#9;{&#10;&#9;&#9;&#9;if (currentXPosition &amp;lt; border)&#10;&#9;&#9;&#9;{&#10;&#9;&#9;&#9;&#9;directionX = minMove;&#10;&#9;&#9;&#9;&#9;directionY = 0;&#10;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;else if (currentXPosition &amp;gt; _MaxX - border)&#10;&#9;&#9;&#9;{&#10;&#9;&#9;&#9;&#9;directionX = -minMove;&#10;&#9;&#9;&#9;&#9;directionY = 0;&#10;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;else if (Math.random() &amp;lt; 0.5)&#10;&#9;          {&#10;&#9;              directionX = -minMove;&#10;&#9;              directionY = 0;&#10;&#9;          }&#10;&#9;          else&#10;&#9;          {&#10;&#9;              directionX = minMove;&#10;&#9;              directionY = 0;&#10;&#9;          }&#10;&#9;&#9;}&#10;&#9;&#9;else if (currentXPosition &amp;lt; _MaxX - border &amp;amp;&amp;amp; Math.random() &amp;lt; 0.25)&#10;&#9;&#9;{&#10;&#9;&#9;&#9;directionX = minMove;&#10;&#9;&#9;&#9;directionY = 0;&#10;&#9;&#9;}&#10;&#9;&#9;else if (currentXPosition &amp;gt; border &amp;amp;&amp;amp; Math.random() &amp;lt; 0.5)&#10;&#9;&#9;{&#10;&#9;&#9;&#9;directionX = -minMove;&#10;&#9;&#9;&#9;directionY = 0;&#10;&#9;&#9;}&#10;&#9;}&#10;}"/>
+                </code-long>
+                <code-long comment="false" x="26" y="642">
+                    <int id="0" val="// render&#10;for (y in 0...Std.int(_MaxY))&#10;{&#10;&#9;for (x in 0...Std.int(_MaxX))&#10;     {&#10;     &#9;var pos = cast((sayToScene(&amp;quot;Maze PM&amp;quot;, &amp;quot;_customBlock_GetListPositionFromXY&amp;quot;, [x, y])), Int);&#10;          var type = _WallList[pos];&#10;          if (type == 0)&#10;&#9;&#9;{&#10;&#9;&#9;&#9;_GfxList[pos] = 0;&#10;&#9;&#9;}&#10;&#9;&#9;else if (type == 1)&#10;&#9;&#9;{&#10;&#9;&#9;&#9;var downpos = cast((sayToScene(&amp;quot;Maze PM&amp;quot;, &amp;quot;_customBlock_GetListPositionFromXY&amp;quot;, [x, y + 3])), Int);&#10;&#9;&#9;&#9;var isWall = _WallList[downpos] == 1;&#10;&#9;&#9;&#9;if (isWall) _GfxList[pos] = 2;&#10;&#9;&#9;&#9;else _GfxList[pos] = 1;&#10;&#9;&#9;}&#10;      }&#10;}"/>
+                </code-long>
+                <set-game-val-0 comment="false" x="26" y="802">
+                    <get-val-1-14 comment="false" id="0" x="0" y="0"/>
+                </set-game-val-0>
+            </group>
+        </init>
+    </group>
+    <group eventID="1" id="1">
+        <code-long comment="false" x="556" y="760">
+            <int id="0" val="// trace walls&#10;var row = &amp;quot;&amp;quot;;&#10;for (y in 0...Std.int(_MaxY))&#10;{&#10;&#9;for (x in 0...Std.int(_MaxX))&#10;     {&#10;     &#9;var pos = cast((sayToScene(&amp;quot;Maze PM&amp;quot;, &amp;quot;_customBlock_GetListPositionFromXY&amp;quot;, [x, y])), Int);&#10;          row = row + _WallList[pos];&#10;     }&#10;     trace(row);&#10;     row = &amp;quot;&amp;quot;;&#10;}&#10;"/>
+        </code-long>
+    </group>
+    <group eventID="1" id="2">
+        <code-long comment="false" x="549" y="552">
+            <int id="0" val="// trace render&#10;var row = &amp;quot;&amp;quot;;&#10;for (y in 0...Std.int(_MaxY))&#10;{&#10;&#9;for (x in 0...Std.int(_MaxX))&#10;     {&#10;     &#9;var pos = cast((sayToScene(&amp;quot;Maze PM&amp;quot;, &amp;quot;_customBlock_GetListPositionFromXY&amp;quot;, [x, y])), Int);&#10;          row = row + _GfxList[pos];&#10;     }&#10;     trace(row);&#10;     row = &amp;quot;&amp;quot;;&#10;}&#10;"/>
+        </code-long>
+    </group>
+    <group eventID="1" id="-1"/>
+    <group eventID="2" id="0">
+        <receiver-1-0 comment="false" x="15" y="15">
+            <group eventID="2" id="-1">
+                <return comment="false" x="26" y="45">
+                    <plus comment="false" id="0" x="0" y="0">
+                        <times comment="false" id="0" x="0" y="0">
+                            <get-byobval-1-0-1 comment="false" id="0" x="0" y="0"/>
+                            <get-val-1-6 comment="false" id="1" x="0" y="0"/>
+                        </times>
+                        <get-byobval-1-0-0 comment="false" id="1" x="0" y="0"/>
+                    </plus>
+                </return>
+            </group>
+            <get-byobval-1-0-0 comment="false" id="0" x="0" y="0"/>
+            <get-byobval-1-0-1 comment="false" id="1" x="0" y="0"/>
+        </receiver-1-0>
+    </group>
+    <group eventID="2" id="-1"/>
+    <group eventID="3" id="0">
+        <step comment="false" x="15" y="15">
+            <group eventID="3" id="-1">
+                <custom-30 comment="false" x="26" y="40"/>
+                <custom-43 comment="false" x="26" y="60"/>
+                <custom-44 comment="false" x="26" y="80"/>
+                <custom-67 comment="false" x="26" y="100"/>
+            </group>
+        </step>
+    </group>
+    <group eventID="3" id="-1"/>
+    <group eventID="8" id="0">
+        <receiver-3-5 comment="false" x="15" y="15">
+            <group eventID="8" id="-1">
+                <if comment="false" x="26" y="45">
+                    <group eventID="4" id="-1">
+                        <set-val-1-11 comment="false" x="37" y="80">
+                            <get-byobval-1-5-0 comment="false" id="0" x="0" y="0"/>
+                        </set-val-1-11>
+                    </group>
+                    <and comment="false" id="0" x="0" y="0">
+                        <more comment="false" id="0" x="0" y="0">
+                            <get-byobval-1-5-0 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="-1"/>
+                        </more>
+                        <less comment="false" id="1" x="0" y="0">
+                            <get-byobval-1-5-0 comment="false" id="0" x="0" y="0"/>
+                            <get-val-1-6 comment="false" id="1" x="0" y="0"/>
+                        </less>
+                    </and>
+                </if>
+                <if comment="false" x="26" y="117">
+                    <group eventID="8" id="-1">
+                        <set-val-1-12 comment="false" x="37" y="152">
+                            <get-byobval-1-5-1 comment="false" id="0" x="0" y="0"/>
+                        </set-val-1-12>
+                    </group>
+                    <and comment="false" id="0" x="0" y="0">
+                        <more comment="false" id="0" x="0" y="0">
+                            <get-byobval-1-5-1 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="-1"/>
+                        </more>
+                        <less comment="false" id="1" x="0" y="0">
+                            <get-byobval-1-5-1 comment="false" id="0" x="0" y="0"/>
+                            <get-val-1-7 comment="false" id="1" x="0" y="0"/>
+                        </less>
+                    </and>
+                </if>
+                <set-val-1-2 comment="false" x="26" y="189">
+                    <minus comment="false" id="0" x="0" y="0">
+                        <get-val-1-11 comment="false" id="0" x="0" y="0"/>
+                        <div comment="false" id="1" x="0" y="0">
+                            <get-val-1-8 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="2"/>
+                        </div>
+                    </minus>
+                </set-val-1-2>
+                <set-val-1-3 comment="false" x="26" y="224">
+                    <minus comment="false" id="0" x="0" y="0">
+                        <get-val-1-12 comment="false" id="0" x="0" y="0"/>
+                        <div comment="false" id="1" x="0" y="0">
+                            <get-val-1-9 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="2"/>
+                        </div>
+                    </minus>
+                </set-val-1-3>
+                <if comment="false" x="26" y="259">
+                    <group eventID="8" id="-1">
+                        <set-val-1-2 comment="false" x="37" y="289">
+                            <int id="0" val="0"/>
+                        </set-val-1-2>
+                    </group>
+                    <less comment="false" id="0" x="0" y="0">
+                        <get-val-1-2 comment="false" id="0" x="0" y="0"/>
+                        <int id="1" val="0"/>
+                    </less>
+                </if>
+                <else-if comment="false" x="26" y="321">
+                    <group eventID="8" id="-1">
+                        <set-val-1-2 comment="false" x="37" y="356">
+                            <minus comment="false" id="0" x="0" y="0">
+                                <get-val-1-6 comment="false" id="0" x="0" y="0"/>
+                                <get-val-1-8 comment="false" id="1" x="0" y="0"/>
+                            </minus>
+                        </set-val-1-2>
+                    </group>
+                    <more comment="false" id="0" x="0" y="0">
+                        <get-val-1-2 comment="false" id="0" x="0" y="0"/>
+                        <minus comment="false" id="1" x="0" y="0">
+                            <get-val-1-6 comment="false" id="0" x="0" y="0"/>
+                            <get-val-1-8 comment="false" id="1" x="0" y="0"/>
+                        </minus>
+                    </more>
+                </else-if>
+                <if comment="false" x="26" y="398">
+                    <group eventID="8" id="-1">
+                        <set-val-1-3 comment="false" x="37" y="428">
+                            <int id="0" val="0"/>
+                        </set-val-1-3>
+                    </group>
+                    <less comment="false" id="0" x="0" y="0">
+                        <get-val-1-3 comment="false" id="0" x="0" y="0"/>
+                        <int id="1" val="0"/>
+                    </less>
+                </if>
+                <else-if comment="false" x="26" y="460">
+                    <group eventID="8" id="-1">
+                        <set-val-1-3 comment="false" x="37" y="495">
+                            <minus comment="false" id="0" x="0" y="0">
+                                <get-val-1-7 comment="false" id="0" x="0" y="0"/>
+                                <get-val-1-9 comment="false" id="1" x="0" y="0"/>
+                            </minus>
+                        </set-val-1-3>
+                    </group>
+                    <more comment="false" id="0" x="0" y="0">
+                        <get-val-1-3 comment="false" id="0" x="0" y="0"/>
+                        <minus comment="false" id="1" x="0" y="0">
+                            <get-val-1-7 comment="false" id="0" x="0" y="0"/>
+                            <get-val-1-9 comment="false" id="1" x="0" y="0"/>
+                        </minus>
+                    </more>
+                </else-if>
+            </group>
+            <get-byobval-1-5-0 comment="false" id="0" x="0" y="0"/>
+            <get-byobval-1-5-1 comment="false" id="1" x="0" y="0"/>
+        </receiver-3-5>
+    </group>
+    <group eventID="8" id="-1"/>
+    <group eventID="9" id="0">
+        <receiver-4-6 comment="false" x="15" y="15">
+            <group eventID="9" id="-1">
+                <return comment="false" x="26" y="45">
+                    <eq comment="false" id="0" x="0" y="0">
+                        <get-item comment="false" id="0" x="0" y="0">
+                            <get-val-1-14 comment="false" id="0" x="0" y="0"/>
+                            <custom-0 comment="false" id="1" x="0" y="0">
+                                <get-byobval-1-6-0 comment="false" id="0" x="0" y="0"/>
+                                <get-byobval-1-6-1 comment="false" id="1" x="0" y="0"/>
+                            </custom-0>
+                        </get-item>
+                        <int id="1" val="0"/>
+                    </eq>
+                </return>
+            </group>
+            <get-byobval-1-6-0 comment="false" id="0" x="0" y="0"/>
+            <get-byobval-1-6-1 comment="false" id="1" x="0" y="0"/>
+        </receiver-4-6>
+    </group>
+    <group eventID="9" id="-1"/>
+    <group eventID="11" id="0">
+        <receiver-6-8 comment="false" x="15" y="15">
+            <group eventID="11" id="-1">
+                <code-long comment="false" x="26" y="45">
+                    <int id="0" val="for (y in Std.int(__Y)...Std.int(__Y + __Height))&#10;{&#10;&#9;for (x in Std.int(__X)...Std.int(__X + __Width))&#10;&#9;{&#10;&#9;&#9;var pos = cast((sayToScene(&amp;quot;Maze PM&amp;quot;, &amp;quot;_customBlock_GetListPositionFromXY&amp;quot;, [x, y])), Int);&#10;&#9;     _WallList[pos] = __Value;&#10;&#9;}&#10;}&#10;"/>
+                </code-long>
+            </group>
+            <get-byobval-1-8-0 comment="false" id="0" x="0" y="0"/>
+            <get-byobval-1-8-1 comment="false" id="1" x="0" y="0"/>
+            <get-byobval-1-8-2 comment="false" id="2" x="0" y="0"/>
+            <get-byobval-1-8-3 comment="false" id="3" x="0" y="0"/>
+            <get-byobval-1-8-4 comment="false" id="4" x="0" y="0"/>
+        </receiver-6-8>
+    </group>
+    <group eventID="11" id="-1"/>
+    <group eventID="12" id="0">
+        <receiver-7-29 comment="false" x="15" y="15">
+            <group eventID="12" id="-1">
+                <set-val-1-19 comment="false" x="26" y="40">
+                    <int id="0" val="-1"/>
+                </set-val-1-19>
+                <set-val-1-20 comment="false" x="26" y="60">
+                    <int id="0" val="-1"/>
+                </set-val-1-20>
+                <while comment="false" x="26" y="80">
+                    <group eventID="2" id="-1">
+                        <set-val-1-19 comment="false" x="37" y="115">
+                            <randint comment="false" id="0" x="0" y="0">
+                                <int id="0" val="0"/>
+                                <get-val-1-6 comment="false" id="1" x="0" y="0"/>
+                            </randint>
+                        </set-val-1-19>
+                        <set-val-1-20 comment="false" x="37" y="145">
+                            <randint comment="false" id="0" x="0" y="0">
+                                <int id="0" val="0"/>
+                                <get-val-1-7 comment="false" id="1" x="0" y="0"/>
+                            </randint>
+                        </set-val-1-20>
+                        <if comment="false" x="37" y="175">
+                            <group eventID="2" id="-1">
+                                <set-val-1-19 comment="false" x="48" y="210">
+                                    <int id="0" val="-1"/>
+                                </set-val-1-19>
+                                <set-val-1-20 comment="false" x="48" y="230">
+                                    <int id="0" val="-1"/>
+                                </set-val-1-20>
+                            </group>
+                            <not comment="false" id="0" x="0" y="0">
+                                <custom-6 comment="false" id="0" x="0" y="0">
+                                    <get-val-1-19 comment="false" id="0" x="0" y="0"/>
+                                    <get-val-1-20 comment="false" id="1" x="0" y="0"/>
+                                </custom-6>
+                            </not>
+                        </if>
+                    </group>
+                    <and comment="false" id="0" x="0" y="0">
+                        <eq comment="false" id="0" x="0" y="0">
+                            <get-val-1-19 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="-1"/>
+                        </eq>
+                        <eq comment="false" id="1" x="0" y="0">
+                            <get-val-1-20 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="-1"/>
+                        </eq>
+                    </and>
+                </while>
+                <return comment="false" x="26" y="274">
+                    <code-short comment="false" id="0" x="0" y="0">
+                        <int id="0" val="[_GoalX, _GoalY]"/>
+                    </code-short>
+                </return>
+            </group>
+        </receiver-7-29>
+    </group>
+    <group eventID="12" id="-1"/>
+    <group eventID="13" id="0">
+        <receiver-8-30 comment="false" x="15" y="15">
+            <group eventID="13" id="-1">
+                <for-each comment="false" x="26" y="40">
+                    <group eventID="13" id="-1">
+                        <if comment="false" x="37" y="65">
+                            <group eventID="3" id="-1">
+                                <if comment="false" x="48" y="103">
+                                    <group eventID="3" id="-1">
+                                        <set-attribute comment="false" x="59" y="146">
+                                            <for-each-item comment="false" id="0" x="0" y="0"/>
+                                            <int id="1" val="Keyboard Controls PM"/>
+                                            <int id="2" val="_IsInitialised"/>
+                                            <true comment="false" id="3" x="0" y="0"/>
+                                        </set-attribute>
+                                        <set-attribute comment="false" x="59" y="178">
+                                            <for-each-item comment="false" id="0" x="0" y="0"/>
+                                            <int id="1" val="Block Map Character PM"/>
+                                            <int id="2" val="_XPosition"/>
+                                            <get-val-1-16 comment="false" id="3" x="0" y="0"/>
+                                        </set-attribute>
+                                        <set-attribute comment="false" x="59" y="210">
+                                            <for-each-item comment="false" id="0" x="0" y="0"/>
+                                            <int id="1" val="Block Map Character PM"/>
+                                            <int id="2" val="_YPosition"/>
+                                            <get-val-1-17 comment="false" id="3" x="0" y="0"/>
+                                        </set-attribute>
+                                    </group>
+                                    <not comment="false" id="0" x="0" y="0">
+                                        <get-attribute comment="false" id="0" x="0" y="0">
+                                            <for-each-item comment="false" id="0" x="0" y="0"/>
+                                            <int id="1" val="Keyboard Controls PM"/>
+                                            <int id="2" val="_IsInitialised"/>
+                                        </get-attribute>
+                                    </not>
+                                </if>
+                                <custom-34 comment="false" x="48" y="254">
+                                    <for-each-item comment="false" id="0" x="0" y="0"/>
+                                    <get-attribute comment="false" id="1" x="0" y="0">
+                                        <for-each-item comment="false" id="0" x="0" y="0"/>
+                                        <int id="1" val="Block Map Character PM"/>
+                                        <int id="2" val="_XPosition"/>
+                                    </get-attribute>
+                                    <get-attribute comment="false" id="2" x="0" y="0">
+                                        <for-each-item comment="false" id="0" x="0" y="0"/>
+                                        <int id="1" val="Block Map Character PM"/>
+                                        <int id="2" val="_YPosition"/>
+                                    </get-attribute>
+                                </custom-34>
+                            </group>
+                            <has-snippet comment="false" id="0" x="0" y="0">
+                                <for-each-item comment="false" id="0" x="0" y="0"/>
+                                <int id="1" val="Keyboard Controls PM"/>
+                            </has-snippet>
+                        </if>
+                        <else-if comment="false" x="37" y="311">
+                            <group eventID="13" id="-1">
+                                <custom-36 comment="false" x="48" y="349">
+                                    <for-each-item comment="false" id="0" x="0" y="0"/>
+                                    <get-attribute comment="false" id="1" x="0" y="0">
+                                        <for-each-item comment="false" id="0" x="0" y="0"/>
+                                        <int id="1" val="Block Map Character PM"/>
+                                        <int id="2" val="_XPosition"/>
+                                    </get-attribute>
+                                    <get-attribute comment="false" id="2" x="0" y="0">
+                                        <for-each-item comment="false" id="0" x="0" y="0"/>
+                                        <int id="1" val="Block Map Character PM"/>
+                                        <int id="2" val="_YPosition"/>
+                                    </get-attribute>
+                                </custom-36>
+                            </group>
+                            <has-snippet comment="false" id="0" x="0" y="0">
+                                <for-each-item comment="false" id="0" x="0" y="0"/>
+                                <int id="1" val="Block Map Character PM"/>
+                            </has-snippet>
+                        </else-if>
+                    </group>
+                    <get-val-1-21 comment="false" id="0" x="0" y="0"/>
+                </for-each>
+            </group>
+        </receiver-8-30>
+    </group>
+    <group eventID="13" id="-1"/>
+    <group eventID="15" id="0">
+        <receiver-12-34 comment="false" x="15" y="15">
+            <group eventID="15" id="-1">
+                <if comment="false" x="26" y="45">
+                    <group eventID="3" id="-1">
+                        <set-xy comment="false" x="37" y="80">
+                            <get-byobval-1-34-0 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="0"/>
+                            <times comment="false" id="2" x="0" y="0">
+                                <get-byobval-1-34-1 comment="false" id="0" x="0" y="0"/>
+                                <tile-wh comment="false" id="1" x="0" y="0">
+                                    <int id="0" val="0"/>
+                                </tile-wh>
+                            </times>
+                        </set-xy>
+                    </group>
+                    <less comment="false" id="0" x="0" y="0">
+                        <get-byobval-1-34-1 comment="false" id="0" x="0" y="0"/>
+                        <div comment="false" id="1" x="0" y="0">
+                            <get-val-1-8 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="2"/>
+                        </div>
+                    </less>
+                </if>
+                <else-if comment="false" x="26" y="137">
+                    <group eventID="3" id="-1">
+                        <set-xy comment="false" x="37" y="177">
+                            <get-byobval-1-34-0 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="0"/>
+                            <plus comment="false" id="2" x="0" y="0">
+                                <div comment="false" id="0" x="0" y="0">
+                                    <screen-wh comment="false" id="0" x="0" y="0">
+                                        <int id="0" val="0"/>
+                                    </screen-wh>
+                                    <int id="1" val="2"/>
+                                </div>
+                                <times comment="false" id="1" x="0" y="0">
+                                    <minus comment="false" id="0" x="0" y="0">
+                                        <get-byobval-1-34-1 comment="false" id="0" x="0" y="0"/>
+                                        <minus comment="false" id="1" x="0" y="0">
+                                            <get-val-1-6 comment="false" id="0" x="0" y="0"/>
+                                            <div comment="false" id="1" x="0" y="0">
+                                                <get-val-1-8 comment="false" id="0" x="0" y="0"/>
+                                                <int id="1" val="2"/>
+                                            </div>
+                                        </minus>
+                                    </minus>
+                                    <tile-wh comment="false" id="1" x="0" y="0">
+                                        <int id="0" val="0"/>
+                                    </tile-wh>
+                                </times>
+                            </plus>
+                        </set-xy>
+                    </group>
+                    <more comment="false" id="0" x="0" y="0">
+                        <get-byobval-1-34-1 comment="false" id="0" x="0" y="0"/>
+                        <minus comment="false" id="1" x="0" y="0">
+                            <get-val-1-6 comment="false" id="0" x="0" y="0"/>
+                            <div comment="false" id="1" x="0" y="0">
+                                <get-val-1-8 comment="false" id="0" x="0" y="0"/>
+                                <int id="1" val="2"/>
+                            </div>
+                        </minus>
+                    </more>
+                </else-if>
+                <else comment="false" x="26" y="246">
+                    <group eventID="3" id="-1">
+                        <set-xy comment="false" x="37" y="266">
+                            <get-byobval-1-34-0 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="0"/>
+                            <div comment="false" id="2" x="0" y="0">
+                                <screen-wh comment="false" id="0" x="0" y="0">
+                                    <int id="0" val="0"/>
+                                </screen-wh>
+                                <int id="1" val="2"/>
+                            </div>
+                        </set-xy>
+                    </group>
+                </else>
+                <if comment="false" x="26" y="323">
+                    <group eventID="3" id="-1">
+                        <set-xy comment="false" x="37" y="358">
+                            <get-byobval-1-34-0 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="1"/>
+                            <minus comment="false" id="2" x="0" y="0">
+                                <times comment="false" id="0" x="0" y="0">
+                                    <get-byobval-1-34-2 comment="false" id="0" x="0" y="0"/>
+                                    <tile-wh comment="false" id="1" x="0" y="0">
+                                        <int id="0" val="1"/>
+                                    </tile-wh>
+                                </times>
+                                <int id="1" val="16"/>
+                            </minus>
+                        </set-xy>
+                    </group>
+                    <less comment="false" id="0" x="0" y="0">
+                        <get-byobval-1-34-2 comment="false" id="0" x="0" y="0"/>
+                        <div comment="false" id="1" x="0" y="0">
+                            <get-val-1-9 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="2"/>
+                        </div>
+                    </less>
+                </if>
+                <else-if comment="false" x="26" y="420">
+                    <group eventID="3" id="-1">
+                        <set-xy comment="false" x="37" y="460">
+                            <get-byobval-1-34-0 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="1"/>
+                            <plus comment="false" id="2" x="0" y="0">
+                                <div comment="false" id="0" x="0" y="0">
+                                    <screen-wh comment="false" id="0" x="0" y="0">
+                                        <int id="0" val="1"/>
+                                    </screen-wh>
+                                    <int id="1" val="2"/>
+                                </div>
+                                <times comment="false" id="1" x="0" y="0">
+                                    <minus comment="false" id="0" x="0" y="0">
+                                        <get-byobval-1-34-2 comment="false" id="0" x="0" y="0"/>
+                                        <minus comment="false" id="1" x="0" y="0">
+                                            <get-val-1-7 comment="false" id="0" x="0" y="0"/>
+                                            <div comment="false" id="1" x="0" y="0">
+                                                <get-val-1-9 comment="false" id="0" x="0" y="0"/>
+                                                <int id="1" val="2"/>
+                                            </div>
+                                        </minus>
+                                    </minus>
+                                    <tile-wh comment="false" id="1" x="0" y="0">
+                                        <int id="0" val="1"/>
+                                    </tile-wh>
+                                </times>
+                            </plus>
+                        </set-xy>
+                    </group>
+                    <more comment="false" id="0" x="0" y="0">
+                        <get-byobval-1-34-2 comment="false" id="0" x="0" y="0"/>
+                        <minus comment="false" id="1" x="0" y="0">
+                            <get-val-1-7 comment="false" id="0" x="0" y="0"/>
+                            <div comment="false" id="1" x="0" y="0">
+                                <get-val-1-9 comment="false" id="0" x="0" y="0"/>
+                                <int id="1" val="2"/>
+                            </div>
+                        </minus>
+                    </more>
+                </else-if>
+                <else comment="false" x="26" y="529">
+                    <group eventID="3" id="-1">
+                        <set-xy comment="false" x="37" y="549">
+                            <get-byobval-1-34-0 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="1"/>
+                            <minus comment="false" id="2" x="0" y="0">
+                                <div comment="false" id="0" x="0" y="0">
+                                    <screen-wh comment="false" id="0" x="0" y="0">
+                                        <int id="0" val="1"/>
+                                    </screen-wh>
+                                    <int id="1" val="2"/>
+                                </div>
+                                <int id="1" val="16"/>
+                            </minus>
+                        </set-xy>
+                    </group>
+                </else>
+            </group>
+            <get-byobval-1-34-0 comment="false" id="0" x="0" y="0"/>
+            <get-byobval-1-34-1 comment="false" id="1" x="0" y="0"/>
+            <get-byobval-1-34-2 comment="false" id="2" x="0" y="0"/>
+        </receiver-12-34>
+    </group>
+    <group eventID="15" id="-1"/>
+    <group eventID="17" id="0">
+        <receiver-16-38 comment="false" x="15" y="15">
+            <group eventID="17" id="-1">
+                <if comment="false" x="26" y="45">
+                    <group eventID="17" id="-1">
+                        <add-list comment="false" x="37" y="80">
+                            <get-val-1-21 comment="false" id="0" x="0" y="0"/>
+                            <get-byobval-1-38-0 comment="false" id="1" x="0" y="0"/>
+                        </add-list>
+                    </group>
+                    <not comment="false" id="0" x="0" y="0">
+                        <contains-item comment="false" id="0" x="0" y="0">
+                            <get-val-1-21 comment="false" id="0" x="0" y="0"/>
+                            <get-byobval-1-38-0 comment="false" id="1" x="0" y="0"/>
+                        </contains-item>
+                    </not>
+                </if>
+            </group>
+            <get-byobval-1-38-0 comment="false" id="0" x="0" y="0"/>
+        </receiver-16-38>
+    </group>
+    <group eventID="17" id="-1"/>
+    <group eventID="16" id="0">
+        <receiver-14-36 comment="false" x="15" y="15">
+            <group eventID="16" id="-1">
+                <if comment="false" x="26" y="45">
+                    <group eventID="16" id="-1">
+                        <toggle-image comment="false" x="37" y="90">
+                            <get-byobval-1-36-0 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="0"/>
+                        </toggle-image>
+                        <set-xy comment="false" x="37" y="122">
+                            <get-byobval-1-36-0 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="0"/>
+                            <times comment="false" id="2" x="0" y="0">
+                                <minus comment="false" id="0" x="0" y="0">
+                                    <get-byobval-1-36-1 comment="false" id="0" x="0" y="0"/>
+                                    <get-val-1-2 comment="false" id="1" x="0" y="0"/>
+                                </minus>
+                                <tile-wh comment="false" id="1" x="0" y="0">
+                                    <int id="0" val="0"/>
+                                </tile-wh>
+                            </times>
+                        </set-xy>
+                        <set-xy comment="false" x="37" y="167">
+                            <get-byobval-1-36-0 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="1"/>
+                            <times comment="false" id="2" x="0" y="0">
+                                <minus comment="false" id="0" x="0" y="0">
+                                    <minus comment="false" id="0" x="0" y="0">
+                                        <get-byobval-1-36-2 comment="false" id="0" x="0" y="0"/>
+                                        <get-val-1-3 comment="false" id="1" x="0" y="0"/>
+                                    </minus>
+                                    <int id="1" val="1"/>
+                                </minus>
+                                <tile-wh comment="false" id="1" x="0" y="0">
+                                    <int id="0" val="1"/>
+                                </tile-wh>
+                            </times>
+                        </set-xy>
+                    </group>
+                    <and comment="false" id="0" x="0" y="0">
+                        <and comment="false" id="0" x="0" y="0">
+                            <moreeq comment="false" id="0" x="0" y="0">
+                                <get-byobval-1-36-1 comment="false" id="0" x="0" y="0"/>
+                                <get-val-1-2 comment="false" id="1" x="0" y="0"/>
+                            </moreeq>
+                            <less comment="false" id="1" x="0" y="0">
+                                <get-byobval-1-36-1 comment="false" id="0" x="0" y="0"/>
+                                <plus comment="false" id="1" x="0" y="0">
+                                    <get-val-1-2 comment="false" id="0" x="0" y="0"/>
+                                    <get-val-1-8 comment="false" id="1" x="0" y="0"/>
+                                </plus>
+                            </less>
+                        </and>
+                        <and comment="false" id="1" x="0" y="0">
+                            <moreeq comment="false" id="0" x="0" y="0">
+                                <get-byobval-1-36-2 comment="false" id="0" x="0" y="0"/>
+                                <minus comment="false" id="1" x="0" y="0">
+                                    <get-val-1-3 comment="false" id="0" x="0" y="0"/>
+                                    <int id="1" val="1"/>
+                                </minus>
+                            </moreeq>
+                            <less comment="false" id="1" x="0" y="0">
+                                <get-byobval-1-36-2 comment="false" id="0" x="0" y="0"/>
+                                <plus comment="false" id="1" x="0" y="0">
+                                    <get-val-1-3 comment="false" id="0" x="0" y="0"/>
+                                    <get-val-1-9 comment="false" id="1" x="0" y="0"/>
+                                </plus>
+                            </less>
+                        </and>
+                    </and>
+                </if>
+                <else comment="false" x="26" y="226">
+                    <group eventID="16" id="-1">
+                        <toggle-image comment="false" x="37" y="246">
+                            <get-byobval-1-36-0 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="1"/>
+                        </toggle-image>
+                        <set-xy comment="false" x="37" y="278">
+                            <get-byobval-1-36-0 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="0"/>
+                            <int id="2" val="-100"/>
+                        </set-xy>
+                        <set-xy comment="false" x="37" y="310">
+                            <get-byobval-1-36-0 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="1"/>
+                            <int id="2" val="-100"/>
+                        </set-xy>
+                    </group>
+                </else>
+            </group>
+            <get-byobval-1-36-0 comment="false" id="0" x="0" y="0"/>
+            <get-byobval-1-36-1 comment="false" id="1" x="0" y="0"/>
+            <get-byobval-1-36-2 comment="false" id="2" x="0" y="0"/>
+        </receiver-14-36>
+    </group>
+    <group eventID="16" id="-1"/>
+    <group eventID="19" id="0">
+        <receiver-18-40 comment="false" x="15" y="15">
+            <group eventID="19" id="-1">
+                <replace-list comment="false" x="26" y="45">
+                    <get-val-1-14 comment="false" id="0" x="0" y="0"/>
+                    <custom-0 comment="false" id="1" x="0" y="0">
+                        <get-byobval-1-40-0 comment="false" id="0" x="0" y="0"/>
+                        <get-byobval-1-40-1 comment="false" id="1" x="0" y="0"/>
+                    </custom-0>
+                    <int id="2" val="0"/>
+                </replace-list>
+            </group>
+            <get-byobval-1-40-0 comment="false" id="0" x="0" y="0"/>
+            <get-byobval-1-40-1 comment="false" id="1" x="0" y="0"/>
+        </receiver-18-40>
+    </group>
+    <group eventID="19" id="-1"/>
+    <group eventID="21" id="0">
+        <receiver-20-42 comment="false" x="15" y="15">
+            <group eventID="21" id="-1">
+                <set-val-1-22 comment="false" x="26" y="45">
+                    <abs comment="false" id="0" x="0" y="0">
+                        <minus comment="false" id="0" x="0" y="0">
+                            <get-attribute comment="false" id="0" x="0" y="0">
+                                <get-byobval-1-42-0 comment="false" id="0" x="0" y="0"/>
+                                <int id="1" val="Block Map Character PM"/>
+                                <int id="2" val="_XPosition"/>
+                            </get-attribute>
+                            <get-attribute comment="false" id="1" x="0" y="0">
+                                <get-byobval-1-42-1 comment="false" id="0" x="0" y="0"/>
+                                <int id="1" val="Block Map Character PM"/>
+                                <int id="2" val="_XPosition"/>
+                            </get-attribute>
+                        </minus>
+                    </abs>
+                </set-val-1-22>
+                <set-val-1-23 comment="false" x="26" y="93">
+                    <abs comment="false" id="0" x="0" y="0">
+                        <minus comment="false" id="0" x="0" y="0">
+                            <get-attribute comment="false" id="0" x="0" y="0">
+                                <get-byobval-1-42-0 comment="false" id="0" x="0" y="0"/>
+                                <int id="1" val="Block Map Character PM"/>
+                                <int id="2" val="_YPosition"/>
+                            </get-attribute>
+                            <get-attribute comment="false" id="1" x="0" y="0">
+                                <get-byobval-1-42-1 comment="false" id="0" x="0" y="0"/>
+                                <int id="1" val="Block Map Character PM"/>
+                                <int id="2" val="_YPosition"/>
+                            </get-attribute>
+                        </minus>
+                    </abs>
+                </set-val-1-23>
+                <return comment="false" x="26" y="141">
+                    <and comment="false" id="0" x="0" y="0">
+                        <less comment="false" id="0" x="0" y="0">
+                            <get-val-1-22 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="2"/>
+                        </less>
+                        <less comment="false" id="1" x="0" y="0">
+                            <get-val-1-23 comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="2"/>
+                        </less>
+                    </and>
+                </return>
+            </group>
+            <get-byobval-1-42-0 comment="false" id="0" x="0" y="0"/>
+            <get-byobval-1-42-1 comment="false" id="1" x="0" y="0"/>
+        </receiver-20-42>
+    </group>
+    <group eventID="21" id="-1"/>
+    <group eventID="20" id="0">
+        <receiver-19-41 comment="false" x="15" y="15">
+            <group eventID="20" id="-1">
+                <replace-list comment="false" x="26" y="45">
+                    <get-val-1-14 comment="false" id="0" x="0" y="0"/>
+                    <custom-0 comment="false" id="1" x="0" y="0">
+                        <get-byobval-1-41-0 comment="false" id="0" x="0" y="0"/>
+                        <get-byobval-1-41-1 comment="false" id="1" x="0" y="0"/>
+                    </custom-0>
+                    <int id="2" val="2"/>
+                </replace-list>
+            </group>
+            <get-byobval-1-41-0 comment="false" id="0" x="0" y="0"/>
+            <get-byobval-1-41-1 comment="false" id="1" x="0" y="0"/>
+        </receiver-19-41>
+    </group>
+    <group eventID="20" id="-1"/>
+    <group eventID="23" id="0">
+        <receiver-22-44 comment="false" x="15" y="15">
+            <group eventID="23" id="-1">
+                <code-long comment="false" x="26" y="40">
+                    <int id="0" val="var row = &amp;quot;&amp;quot;;&#10;if (_OldScreenOffsetX != _ScreenOffsetX || _OldScreenOffsetY != _ScreenOffsetY)&#10;{&#10;&#9;var rightEdge = Std.int(_ScreenOffsetX + _ScreenTilesX);&#10;&#9;if (rightEdge &amp;gt; _MaxX) rightEdge = Std.int(_MaxX);&#10;&#9;var bottomEdge = Std.int(_ScreenOffsetY + _ScreenTilesY);&#10;&#9;if (bottomEdge &amp;gt; _MaxY) bottomEdge = Std.int(_MaxY);&#10;&#10;&#9;//trace(_ScreenOffsetX+ &amp;quot;:&amp;quot; + _ScreenOffsetY + &amp;quot;-&amp;quot; + rightEdge + &amp;quot;:&amp;quot; + bottomEdge);&#10;&#9;for (y in Std.int(_ScreenOffsetY)...bottomEdge)&#10;&#9;{&#10;&#9;&#9;for (x in Std.int(_ScreenOffsetX)...rightEdge)&#10;&#9;&#9;{&#10;&#9;&#9;&#9;var drawX = Std.int(x - _ScreenOffsetX);&#10;&#9;&#9;&#9;var drawY = Std.int(y - _ScreenOffsetY);&#10;&#9;&#9;&#9;var pos = cast((sayToScene(&amp;quot;Maze PM&amp;quot;, &amp;quot;_customBlock_GetListPositionFromXY&amp;quot;, [x, y])), Int);&#10;&#9;          var tileID = _GfxList[pos];&#10;&#9;          TileAPI.removeTileAt(drawY,drawX,0);&#10;&#9;&#9;&#9;TileAPI.setTileAt(drawY,drawX,0,_TileSetID,tileID);&#10;&#9;&#9;&#9;//trace(&amp;quot;set at &amp;quot; + x + &amp;quot;, &amp;quot; + y);&#10;&#9;&#9;&#9;row = row + tileID;&#10;&#9;&#9;}&#10;&#9;&#9;//trace(row);&#10;&#9;&#9;row = &amp;quot;&amp;quot;;&#10;&#9;}&#10;&#9;_OldScreenOffsetX = _ScreenOffsetX;&#10;&#9;_OldScreenOffsetY = _ScreenOffsetY;&#10;}&#10;"/>
+                </code-long>
+            </group>
+        </receiver-22-44>
+    </group>
+    <group eventID="23" id="-1"/>
+    <group eventID="22" id="0">
+        <receiver-21-43 comment="false" x="15" y="15">
+            <group eventID="22" id="-1">
+                <code-long comment="false" x="26" y="40">
+                    <int id="0" val="_AdjacentCharacters = [];&#10;for (a in _Characters)&#10;{&#10;&#9;for (b in _Characters)&#10;&#9;{&#10;&#9;&#9;if (a == b) continue;&#10;&#9;&#9;var isAdjacent = cast((sayToScene(&amp;quot;Maze PM&amp;quot;, &amp;quot;_customBlock_AreCharactersTouching&amp;quot;, [a,b])), Bool);&#10;&#10;&#9;&#9;if (isAdjacent)&#10;&#9;&#9;{&#10;&#9;&#9;&#9;var aName = a.name + &amp;quot; &amp;quot; + a.ID;&#10;&#9;&#9;&#9;var bName = b.name + &amp;quot; &amp;quot; + b.ID;&#10;&#9;&#9;&#9;_AdjacentCharacters.push(aName + &amp;quot;|&amp;quot; + bName);&#10;&#9;&#9;&#9;_AdjacentCharacters.push(bName + &amp;quot;|&amp;quot; + aName);&#10;&#9;&#9;}&#10;&#9;}&#10;}&#10;"/>
+                </code-long>
+            </group>
+        </receiver-21-43>
+    </group>
+    <group eventID="22" id="-1"/>
+    <group eventID="25" id="0">
+        <receiver-24-46 comment="false" x="15" y="15">
+            <group eventID="25" id="-1">
+                <code-long comment="false" x="26" y="45">
+                    <int id="0" val="for (namesString in _AdjacentCharacters)&#10;{&#10;&#9;var chatterName = __Chatter.name + &amp;quot; &amp;quot; + __Chatter.ID;&#10;&#9;var names = namesString.split(&amp;quot;|&amp;quot;);&#10;&#9;var name1 = names[0];&#10;&#9;var name2 = names[1];&#10;&#9;var otherName = name1 == chatterName ? name2 : name1;&#10;&#9;if (name1 == chatterName || name2 == chatterName)&#10;&#9;{&#10;&#9;&#9;var allActors = Engine.engine.allActors;&#10;&#9;&#9;for (actorOnScreen in allActors)&#10;&#9;&#9;{&#10;&#9;&#9;&#9;if (actorOnScreen != null &amp;amp;&amp;amp; !actorOnScreen.dead &amp;amp;&amp;amp; !actorOnScreen.recycled)&#10;&#9;&#9;&#9;{&#10;&#9;&#9;&#9;&#9;if (actorOnScreen.name + &amp;quot; &amp;quot; + actorOnScreen.ID == otherName)&#10;&#9;&#9;&#9;&#9;{&#10;&#9;&#9;&#9;&#9;&#9;return actorOnScreen;&#10;&#9;&#9;&#9;&#9;}&#10;&#9;&#9;&#9;}&#10;&#9;&#9;}&#10;&#9;}&#10;}&#10;&#10;return null;&#10;"/>
+                </code-long>
+            </group>
+            <get-byobval-1-46-0 comment="false" id="0" x="0" y="0"/>
+        </receiver-24-46>
+    </group>
+    <group eventID="25" id="-1"/>
+    <group eventID="24" id="0">
+        <receiver-23-45 comment="false" x="15" y="15">
+            <group eventID="24" id="-1">
+                <for-each comment="false" x="26" y="45">
+                    <group eventID="24" id="-1">
+                        <if comment="false" x="37" y="70">
+                            <group eventID="24" id="-1">
+                                <return comment="false" x="48" y="95">
+                                    <true comment="false" id="0" x="0" y="0"/>
+                                </return>
+                            </group>
+                            <code-short comment="false" id="0" x="0" y="0">
+                                <int id="0" val="item == __Character1.name + &amp;quot; &amp;quot; + __Character1.ID + &amp;quot;|&amp;quot; + __Character2.name + &amp;quot; &amp;quot; + __Character2.ID &amp;amp;&amp;amp; __Character2.hasBehavior(&amp;quot;Chatee PM&amp;quot;)"/>
+                            </code-short>
+                        </if>
+                    </group>
+                    <get-val-1-21 comment="false" id="0" x="0" y="0"/>
+                </for-each>
+                <return comment="false" x="26" y="144">
+                    <false comment="false" id="0" x="0" y="0"/>
+                </return>
+            </group>
+            <get-byobval-1-45-0 comment="false" id="0" x="0" y="0"/>
+            <get-byobval-1-45-1 comment="false" id="1" x="0" y="0"/>
+        </receiver-23-45>
+    </group>
+    <group eventID="24" id="-1"/>
+    <group eventID="26" id="0">
+        <receiver-25-67 comment="false" x="15" y="15">
+            <group eventID="26" id="-1">
+                <set-val-1-25 comment="false" x="26" y="40">
+                    <create-list comment="false" id="0" x="0" y="0"/>
+                </set-val-1-25>
+                <code-long comment="false" x="26" y="65">
+                    <int id="0" val="for (character in _Characters) {&#10;&#9;var count = 0;&#10;&#9;var inserted = false;&#10;&#9;for (sortee in _DepthSortList) {&#10;&#9;&#9;if (character.getY() &amp;lt; sortee.getY()) {&#10;&#9;&#9;&#9;_DepthSortList.insert(Std.int(count), character);&#10;&#9;&#9;&#9;inserted = true;&#10;&#9;&#9;&#9;break;&#10;&#9;&#9;}&#10;&#9;&#9;count++;&#10;&#9;}&#10;&#10;&#9;if (!inserted) _DepthSortList.push(character);&#10;}&#10;"/>
+                </code-long>
+                <for-each comment="false" x="26" y="225">
+                    <group eventID="26" id="-1">
+                        <backforward comment="false" x="37" y="250">
+                            <for-each-item comment="false" id="0" x="0" y="0"/>
+                            <int id="1" val="3"/>
+                        </backforward>
+                    </group>
+                    <get-val-1-25 comment="false" id="0" x="0" y="0"/>
+                </for-each>
+            </group>
+        </receiver-25-67>
+    </group>
+    <group eventID="26" id="-1">
+        <get-val-1-21 comment="false" x="250" y="165"/>
+    </group>
+</groups>

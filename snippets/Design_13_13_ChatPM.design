@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<groups>
+    <group eventID="1" id="0">
+        <event-key-press-release comment="false" x="15" y="15">
+            <group eventID="1" id="-1">
+                <set-val-13-1 comment="false" x="26" y="42">
+                    <custom-46 comment="false" id="0" x="0" y="0">
+                        <ACTOR eid="this" id="0"/>
+                    </custom-46>
+                </set-val-13-1>
+                <if comment="false" x="26" y="82">
+                    <group eventID="1" id="-1">
+                        <custom-63 comment="false" x="37" y="115">
+                            <ACTOR eid="var" id="0" vid="2"/>
+                            <get-attribute comment="false" id="1" x="0" y="0">
+                                <ACTOR eid="var" id="0" vid="1"/>
+                                <int id="1" val="Chatee PM"/>
+                                <int id="2" val="_Portrait"/>
+                            </get-attribute>
+                            <get-attribute comment="false" id="2" x="0" y="0">
+                                <ACTOR eid="var" id="0" vid="1"/>
+                                <int id="1" val="Chatee PM"/>
+                                <int id="2" val="_Name"/>
+                            </get-attribute>
+                            <get-attribute comment="false" id="3" x="0" y="0">
+                                <ACTOR eid="var" id="0" vid="1"/>
+                                <int id="1" val="Chatee PM"/>
+                                <int id="2" val="_Bio"/>
+                            </get-attribute>
+                            <int id="4" val="I&amp;#039;ll fucking do you."/>
+                        </custom-63>
+                        <set-val-13-3 comment="false" x="37" y="155">
+                            <true comment="false" id="0" x="0" y="0"/>
+                        </set-val-13-3>
+                    </group>
+                    <value comment="false" id="0" x="0" y="0">
+                        <int id="0" val="1"/>
+                        <int id="1" val="0"/>
+                    </value>
+                </if>
+            </group>
+            <CONTROL eid="4" id="0"/>
+            <int id="1" val="0"/>
+        </event-key-press-release>
+    </group>
+    <group eventID="1" id="-1"/>
+    <group eventID="2" id="0">
+        <step comment="false" x="15" y="15">
+            <group eventID="2" id="-1">
+                <if comment="false" x="26" y="40">
+                    <group eventID="2" id="-1">
+                        <set-val-13-1 comment="false" x="37" y="65">
+                            <custom-46 comment="false" id="0" x="0" y="0">
+                                <ACTOR eid="this" id="0"/>
+                            </custom-46>
+                        </set-val-13-1>
+                        <if comment="false" x="37" y="105">
+                            <group eventID="2" id="-1">
+                                <set-val-13-3 comment="false" x="48" y="143">
+                                    <false comment="false" id="0" x="0" y="0"/>
+                                </set-val-13-3>
+                                <custom-66 comment="false" x="48" y="168">
+                                    <ACTOR eid="var" id="0" vid="2"/>
+                                </custom-66>
+                            </group>
+                            <not comment="false" id="0" x="0" y="0">
+                                <value comment="false" id="0" x="0" y="0">
+                                    <int id="0" val="1"/>
+                                    <int id="1" val="0"/>
+                                </value>
+                            </not>
+                        </if>
+                    </group>
+                    <get-val-13-3 comment="false" id="0" x="0" y="0"/>
+                </if>
+            </group>
+        </step>
+    </group>
+    <group eventID="2" id="-1"/>
+</groups>
