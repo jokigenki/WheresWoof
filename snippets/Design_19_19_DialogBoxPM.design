@@ -182,6 +182,12 @@
                     <int id="2" val="_TextToDraw"/>
                     <get-byobval-19-63-4 comment="false" id="3" x="0" y="0"/>
                 </set-attribute>
+                <set-attribute comment="false" x="26" y="840">
+                    <ACTOR eid="var" id="0" vid="7"/>
+                    <int id="1" val="Label PM"/>
+                    <int id="2" val="_MaxWidth"/>
+                    <int id="3" val="170"/>
+                </set-attribute>
             </group>
             <get-byobval-19-63-0 comment="false" id="0" x="0" y="0"/>
             <get-byobval-19-63-1 comment="false" id="1" x="0" y="0"/>
@@ -190,13 +196,7 @@
             <get-byobval-19-63-4 comment="false" id="4" x="0" y="0"/>
         </receiver-3-63>
     </group>
-    <group eventID="4" id="-1">
-        <get-byobval-19-63-0 comment="false" x="0" y="0"/>
-        <get-byobval-19-63-1 comment="false" x="0" y="0"/>
-        <get-byobval-19-63-2 comment="false" x="0" y="0"/>
-        <get-byobval-19-63-3 comment="false" x="0" y="0"/>
-        <get-byobval-19-63-4 comment="false" x="0" y="0"/>
-    </group>
+    <group eventID="4" id="-1"/>
     <group eventID="5" id="0">
         <receiver-5-66 comment="false" x="15" y="15">
             <group eventID="5" id="-1">
@@ -252,7 +252,5 @@
             <get-byobval-19-66-0 comment="false" id="0" x="0" y="0"/>
         </receiver-5-66>
     </group>
-    <group eventID="5" id="-1">
-        <get-byobval-19-66-0 comment="false" x="0" y="0"/>
-    </group>
+    <group eventID="5" id="-1"/>
 </groups>

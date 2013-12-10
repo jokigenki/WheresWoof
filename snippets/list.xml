@@ -137,8 +137,8 @@
         <number default="0" defaultValue="0" desc="" dropdown="" fullname="Map Width" hidden="true" id="12" name="_MapWidth" order="10"/>
         <number default="0" defaultValue="0" desc="" dropdown="" fullname="Map Height" hidden="true" id="13" name="_MapHeight" order="11"/>
         <boolean default="false" defaultValue="false" desc="" dropdown="" fullname="Has Destination?" hidden="true" id="14" name="_HasDestination" order="12"/>
-        <number default="0" defaultValue="0" desc="" dropdown="" fullname="Frame Count" hidden="true" id="15" name="_FrameCount" order="13"/>
         <actor default="thisactor" defaultValue="thisactor" desc="" dropdown="" fullname="Actor" hidden="true" id="2147483647" name="actor" order="0"/>
+        <number default="0" defaultValue="0" desc="" dropdown="" fullname="Frame Count" hidden="true" id="15" name="_FrameCount" order="13"/>
         <boolean default="false" defaultValue="false" desc="" dropdown="" fullname="Allow Wander?" hidden="false" id="17" name="_AllowWander" order="15"/>
         <number default="15" defaultValue="15" desc="" dropdown="" fullname="Frames Per Move" hidden="false" id="16" name="_FramesPerMove" order="14"/>
         <blocks>
