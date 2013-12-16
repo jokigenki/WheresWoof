@@ -3,27 +3,47 @@
     <group eventID="1" id="0">
         <step comment="false" x="15" y="15">
             <group eventID="1" id="-1">
-                <set-val-8-7 comment="false" x="26" y="40">
+                <if comment="false" x="26" y="40">
+                    <group eventID="1" id="-1">
+                        <stop comment="false" x="37" y="70"/>
+                    </group>
+                    <not comment="false" id="0" x="0" y="0">
+                        <get-val-8-9 comment="false" id="0" x="0" y="0"/>
+                    </not>
+                </if>
+                <if comment="false" x="26" y="102">
+                    <group eventID="1" id="-1">
+                        <stop comment="false" x="37" y="140"/>
+                    </group>
+                    <not comment="false" id="0" x="0" y="0">
+                        <get-attribute comment="false" id="0" x="0" y="0">
+                            <ACTOR eid="this" id="0"/>
+                            <int id="1" val="Block Map Character PM"/>
+                            <int id="2" val="_IsInitialised"/>
+                        </get-attribute>
+                    </not>
+                </if>
+                <set-val-8-7 comment="false" x="26" y="172">
                     <get-attribute comment="false" id="0" x="0" y="0">
                         <ACTOR eid="this" id="0"/>
                         <int id="1" val="Block Map Character PM"/>
                         <int id="2" val="_XPosition"/>
                     </get-attribute>
                 </set-val-8-7>
-                <set-val-8-8 comment="false" x="26" y="73">
+                <set-val-8-8 comment="false" x="26" y="205">
                     <get-attribute comment="false" id="0" x="0" y="0">
                         <ACTOR eid="this" id="0"/>
                         <int id="1" val="Block Map Character PM"/>
                         <int id="2" val="_YPosition"/>
                     </get-attribute>
                 </set-val-8-8>
-                <custom-40 comment="false" x="26" y="106">
+                <custom-40 comment="false" x="26" y="238">
                     <get-val-8-7 comment="false" id="0" x="0" y="0"/>
                     <get-val-8-8 comment="false" id="1" x="0" y="0"/>
                 </custom-40>
-                <if comment="false" x="26" y="131">
+                <if comment="false" x="26" y="263">
                     <group eventID="1" id="-1">
-                        <set-val-8-14 comment="false" x="37" y="166">
+                        <set-val-8-14 comment="false" x="37" y="298">
                             <false comment="false" id="0" x="0" y="0"/>
                         </set-val-8-14>
                     </group>
@@ -38,47 +58,57 @@
                         </eq>
                     </and>
                 </if>
-                <if comment="false" x="26" y="203">
+                <if comment="false" x="26" y="335">
                     <group eventID="1" id="-1">
-                        <set-val-8-14 comment="false" x="37" y="233">
+                        <print comment="false" x="37" y="365">
+                            <str-combine comment="false" id="0" x="0" y="0">
+                                <int id="0" val="Setting path: "/>
+                                <tostring comment="false" id="1" x="0" y="0">
+                                    <actor comment="false" id="0" x="0" y="0">
+                                        <ACTOR eid="this" id="0"/>
+                                    </actor>
+                                </tostring>
+                            </str-combine>
+                        </print>
+                        <set-val-8-14 comment="false" x="37" y="408">
                             <true comment="false" id="0" x="0" y="0"/>
                         </set-val-8-14>
-                        <set-val-8-5 comment="false" x="37" y="258">
+                        <set-val-8-5 comment="false" x="37" y="433">
                             <custom-29 comment="false" id="0" x="0" y="0"/>
                         </set-val-8-5>
-                        <set-val-8-1 comment="false" x="37" y="283">
+                        <set-val-8-1 comment="false" x="37" y="458">
                             <get-item comment="false" id="0" x="0" y="0">
                                 <get-val-8-5 comment="false" id="0" x="0" y="0"/>
                                 <int id="1" val="0"/>
                             </get-item>
                         </set-val-8-1>
-                        <set-val-8-2 comment="false" x="37" y="313">
+                        <set-val-8-2 comment="false" x="37" y="488">
                             <get-item comment="false" id="0" x="0" y="0">
                                 <get-val-8-5 comment="false" id="0" x="0" y="0"/>
                                 <int id="1" val="1"/>
                             </get-item>
                         </set-val-8-2>
-                        <set-val-8-10 comment="false" x="37" y="343">
+                        <set-val-8-10 comment="false" x="37" y="518">
                             <create-list comment="false" id="0" x="0" y="0"/>
                         </set-val-8-10>
-                        <dolater comment="false" x="37" y="368">
+                        <dolater comment="false" x="37" y="543">
                             <group eventID="1" id="-1">
-                                <set-val-8-11 comment="false" x="48" y="395">
+                                <set-val-8-11 comment="false" x="48" y="570">
                                     <get-game-val-0 comment="false" id="0" x="0" y="0"/>
                                 </set-val-8-11>
-                                <set-val-8-12 comment="false" x="48" y="420">
+                                <set-val-8-12 comment="false" x="48" y="595">
                                     <scene-get-attribute comment="false" id="0" x="0" y="0">
                                         <int id="0" val="Maze PM"/>
                                         <int id="1" val="_MaxX"/>
                                     </scene-get-attribute>
                                 </set-val-8-12>
-                                <set-val-8-13 comment="false" x="48" y="445">
+                                <set-val-8-13 comment="false" x="48" y="620">
                                     <scene-get-attribute comment="false" id="0" x="0" y="0">
                                         <int id="0" val="Maze PM"/>
                                         <int id="1" val="_MaxY"/>
                                     </scene-get-attribute>
                                 </set-val-8-13>
-                                <set-val-8-10 comment="false" x="48" y="470">
+                                <set-val-8-10 comment="false" x="48" y="645">
                                     <int id="0" val="scripts.AStarPathFinder.getAStarPath(_LocalCollisionMap, Std.int(_MapWidth), Std.int(_MapHeight), Std.int(_XPosition), Std.int(_YPosition), Std.int(_GoalX), Std.int(_GoalY), false)"/>
                                 </set-val-8-10>
                             </group>
@@ -90,22 +120,22 @@
                         <get-val-8-14 comment="false" id="0" x="0" y="0"/>
                     </not>
                 </if>
-                <if comment="false" x="26" y="514">
+                <if comment="false" x="26" y="689">
                     <group eventID="1" id="-1">
-                        <set-val-8-15 comment="false" x="37" y="549">
+                        <set-val-8-15 comment="false" x="37" y="724">
                             <int id="0" val="0"/>
                         </set-val-8-15>
-                        <if comment="false" x="37" y="569">
+                        <if comment="false" x="37" y="744">
                             <group eventID="1" id="-1">
-                                <custom-code comment="false" x="48" y="609">
+                                <custom-code comment="false" x="48" y="784">
                                     <int id="0" val="var nextNode = _Path.pop();"/>
                                 </custom-code>
-                                <set-val-8-7 comment="false" x="48" y="629">
+                                <set-val-8-7 comment="false" x="48" y="804">
                                     <code-short comment="false" id="0" x="0" y="0">
                                         <int id="0" val="nextNode.x"/>
                                     </code-short>
                                 </set-val-8-7>
-                                <set-val-8-8 comment="false" x="48" y="654">
+                                <set-val-8-8 comment="false" x="48" y="829">
                                     <code-short comment="false" id="0" x="0" y="0">
                                         <int id="0" val="nextNode.y"/>
                                     </code-short>
@@ -133,26 +163,26 @@
                         <get-val-8-17 comment="false" id="1" x="0" y="0"/>
                     </and>
                 </if>
-                <else comment="false" x="26" y="703">
+                <else comment="false" x="26" y="878">
                     <group eventID="1" id="-1">
-                        <incdec comment="false" x="37" y="723">
+                        <incdec comment="false" x="37" y="898">
                             <int id="0" val="15"/>
                             <int id="1" val="0"/>
                             <int id="2" val="1"/>
                         </incdec>
                     </group>
                 </else>
-                <custom-41 comment="false" x="26" y="762">
+                <custom-41 comment="false" x="26" y="937">
                     <get-val-8-7 comment="false" id="0" x="0" y="0"/>
                     <get-val-8-8 comment="false" id="1" x="0" y="0"/>
                 </custom-41>
-                <set-attribute comment="false" x="26" y="787">
+                <set-attribute comment="false" x="26" y="962">
                     <ACTOR eid="this" id="0"/>
                     <int id="1" val="Block Map Character PM"/>
                     <int id="2" val="_XPosition"/>
                     <get-val-8-7 comment="false" id="3" x="0" y="0"/>
                 </set-attribute>
-                <set-attribute comment="false" x="26" y="819">
+                <set-attribute comment="false" x="26" y="994">
                     <ACTOR eid="this" id="0"/>
                     <int id="1" val="Block Map Character PM"/>
                     <int id="2" val="_YPosition"/>
@@ -275,41 +305,18 @@
     <group eventID="7" id="0">
         <init comment="false" x="15" y="15">
             <group eventID="7" id="-1">
-                <if comment="false" x="26" y="40">
+                <dolater comment="false" x="26" y="40">
                     <group eventID="7" id="-1">
-                        <set-val-8-5 comment="false" x="37" y="65">
-                            <custom-29 comment="false" id="0" x="0" y="0"/>
-                        </set-val-8-5>
-                        <set-val-8-7 comment="false" x="37" y="90">
-                            <get-item comment="false" id="0" x="0" y="0">
-                                <get-val-8-5 comment="false" id="0" x="0" y="0"/>
-                                <int id="1" val="0"/>
-                            </get-item>
-                        </set-val-8-7>
-                        <set-val-8-8 comment="false" x="37" y="120">
-                            <get-item comment="false" id="0" x="0" y="0">
-                                <get-val-8-5 comment="false" id="0" x="0" y="0"/>
-                                <int id="1" val="1"/>
-                            </get-item>
-                        </set-val-8-8>
-                        <set-attribute comment="false" x="37" y="150">
+                        <set-val-8-9 comment="false" x="37" y="67">
+                            <true comment="false" id="0" x="0" y="0"/>
+                        </set-val-8-9>
+                        <custom-38 comment="false" x="37" y="92">
                             <ACTOR eid="this" id="0"/>
-                            <int id="1" val="Block Map Character PM"/>
-                            <int id="2" val="_XPosition"/>
-                            <get-val-8-7 comment="false" id="3" x="0" y="0"/>
-                        </set-attribute>
-                        <set-attribute comment="false" x="37" y="182">
-                            <ACTOR eid="this" id="0"/>
-                            <int id="1" val="Block Map Character PM"/>
-                            <int id="2" val="_YPosition"/>
-                            <get-val-8-8 comment="false" id="3" x="0" y="0"/>
-                        </set-attribute>
+                        </custom-38>
                     </group>
-                    <get-val-8-6 comment="false" id="0" x="0" y="0"/>
-                </if>
-                <custom-38 comment="false" x="26" y="226">
-                    <ACTOR eid="this" id="0"/>
-                </custom-38>
+                    <int id="0" val="0.1"/>
+                    <ACTOR eid="this" id="2"/>
+                </dolater>
             </group>
         </init>
     </group>

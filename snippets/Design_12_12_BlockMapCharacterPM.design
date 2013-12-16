@@ -1,2 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<groups/>
+<groups>
+    <group eventID="1" id="0">
+        <init comment="false" x="15" y="15">
+            <group eventID="1" id="-1">
+                <dolater comment="false" x="26" y="40">
+                    <group eventID="1" id="-1">
+                        <set-val-12-4 comment="false" x="37" y="67">
+                            <true comment="false" id="0" x="0" y="0"/>
+                        </set-val-12-4>
+                        <if comment="false" x="37" y="92">
+                            <group eventID="1" id="-1">
+                                <set-val-12-5 comment="false" x="48" y="117">
+                                    <custom-29 comment="false" id="0" x="0" y="0"/>
+                                </set-val-12-5>
+                                <set-val-12-1 comment="false" x="48" y="142">
+                                    <get-item comment="false" id="0" x="0" y="0">
+                                        <get-val-12-5 comment="false" id="0" x="0" y="0"/>
+                                        <int id="1" val="0"/>
+                                    </get-item>
+                                </set-val-12-1>
+                                <set-val-12-2 comment="false" x="48" y="172">
+                                    <get-item comment="false" id="0" x="0" y="0">
+                                        <get-val-12-5 comment="false" id="0" x="0" y="0"/>
+                                        <int id="1" val="1"/>
+                                    </get-item>
+                                </set-val-12-2>
+                            </group>
+                            <get-val-12-3 comment="false" id="0" x="0" y="0"/>
+                        </if>
+                    </group>
+                    <int id="0" val="0.1"/>
+                    <ACTOR eid="this" id="2"/>
+                </dolater>
+            </group>
+        </init>
+    </group>
+    <group eventID="1" id="-1"/>
+</groups>

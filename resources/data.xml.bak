@@ -61,11 +61,9 @@
         <blank name="Speech" order="4" type="TEXT"/>
     </custom-block>
     <sprite atlasID="0" default="0" defaultAnimation="0" desc="" height="32" id="16" name="Dude" shared="false" width="16">
-        <anim across="1" down="1" durations="100" height="32" id="0" loop="true" name="Animation 0" numframes="1" originx="8" originy="16" sync="false" width="16">
-            <poly data="4,0,0,16,0,16,32,0,32" density="0.1" fric="0.2" gid="-1000" id="0" name="Animation 0" rest="0.0" sensor="false"/>
-        </anim>
+        <anim across="1" down="1" durations="100" height="32" id="0" loop="true" name="Animation 0" numframes="1" originx="8" originy="16" sync="false" width="16"/>
     </sprite>
-    <actor adamp="0.0" ascale="true" atlasID="0" bodytype="2" continuous="true" desc="" eventsnippetid="7" fixedrot="false" fric="0.2" gid="3" id="15" ignoreg="false" inertia="1.0" ldamp="0.0" lw="false" mass="1.0" name="Dude" oid="-1" pausable="true" rest="0.0" shared="false" sprite="16" static="false">
+    <actor adamp="0.0" ascale="true" atlasID="0" bodytype="0" continuous="true" desc="" eventsnippetid="7" fixedrot="false" fric="0.2" gid="3" id="15" ignoreg="false" inertia="1.0" ldamp="0.0" lw="false" mass="1.0" name="Dude" oid="-1" pausable="true" rest="0.0" shared="false" sprite="16" static="true">
         <snippets>
             <s enabled="true" id="22">
                 <prop id="1" list="0" val="51"/>
@@ -88,14 +86,23 @@
                 <prop id="12" list="0" val="0"/>
                 <prop id="13" list="0" val="0"/>
                 <prop id="14" list="0" val="false"/>
-                <prop id="15" list="0" val="0"/>
                 <prop id="2147483647" list="0" val="thisactor"/>
+                <prop id="15" list="0" val="0"/>
                 <prop id="17" list="0" val="false"/>
                 <prop id="16" list="0" val="15"/>
+            </s>
+            <s enabled="true" id="24">
+                <prop id="2" list="0" val="0"/>
+                <prop id="3" list="0" val="0"/>
+                <prop id="4" list="0" val="5"/>
+                <prop id="2147483647" list="0" val="thisactor"/>
             </s>
             <s enabled="true" id="12">
                 <prop id="1" list="0" val="0"/>
                 <prop id="2" list="0" val="0"/>
+                <prop id="3" list="0" val="false"/>
+                <prop id="4" list="0" val="false"/>
+                <prop id="5" list="1" val=""/>
                 <prop id="2147483647" list="0" val="thisactor"/>
             </s>
         </snippets>
@@ -173,11 +180,9 @@
         </anim>
     </sprite>
     <sprite atlasID="0" default="0" defaultAnimation="0" desc="" height="32" id="14" name="Lady" shared="false" width="16">
-        <anim across="1" down="1" durations="100" height="32" id="0" loop="true" name="Animation 0" numframes="1" originx="8" originy="16" sync="false" width="16">
-            <poly data="4,0,0,16,0,16,32,0,32" density="0.1" fric="0.2" gid="-1000" id="0" name="Animation 0" rest="0.0" sensor="false"/>
-        </anim>
+        <anim across="1" down="1" durations="100" height="32" id="0" loop="true" name="Animation 0" numframes="1" originx="8" originy="16" sync="false" width="16"/>
     </sprite>
-    <actor adamp="0.0" ascale="true" atlasID="0" bodytype="2" continuous="true" desc="" eventsnippetid="6" fixedrot="false" fric="0.2" gid="3" id="13" ignoreg="false" inertia="1.0" ldamp="0.0" lw="false" mass="1.0" name="Lady" oid="-1" pausable="true" rest="0.0" shared="false" sprite="14" static="false">
+    <actor adamp="0.0" ascale="true" atlasID="0" bodytype="0" continuous="true" desc="" eventsnippetid="6" fixedrot="false" fric="0.2" gid="3" id="13" ignoreg="false" inertia="1.0" ldamp="0.0" lw="false" mass="1.0" name="Lady" oid="-1" pausable="true" rest="0.0" shared="false" sprite="14" static="true">
         <snippets>
             <s enabled="true" id="22">
                 <prop id="1" list="0" val="53"/>
@@ -191,7 +196,7 @@
                 <prop id="3" list="0" val="0"/>
                 <prop id="4" list="0" val="0"/>
                 <prop id="5" list="1" val=""/>
-                <prop id="6" list="0" val="false"/>
+                <prop id="6" list="0" val="true"/>
                 <prop id="7" list="0" val="0"/>
                 <prop id="8" list="0" val="0"/>
                 <prop id="9" list="0" val="false"/>
@@ -200,14 +205,23 @@
                 <prop id="12" list="0" val="0"/>
                 <prop id="13" list="0" val="0"/>
                 <prop id="14" list="0" val="false"/>
-                <prop id="15" list="0" val="0"/>
                 <prop id="2147483647" list="0" val="thisactor"/>
-                <prop id="17" list="0" val="false"/>
+                <prop id="15" list="0" val="0"/>
+                <prop id="17" list="0" val="true"/>
                 <prop id="16" list="0" val="15"/>
             </s>
+            <s enabled="true" id="24">
+                <prop id="2" list="0" val="0"/>
+                <prop id="3" list="0" val="0"/>
+                <prop id="4" list="0" val="5"/>
+                <prop id="2147483647" list="0" val="thisactor"/>
+            </s>
             <s enabled="true" id="12">
-                <prop id="1" list="0" val="98"/>
-                <prop id="2" list="0" val="6"/>
+                <prop id="1" list="0" val="0"/>
+                <prop id="2" list="0" val="0"/>
+                <prop id="3" list="0" val="true"/>
+                <prop id="4" list="0" val="false"/>
+                <prop id="5" list="1" val=""/>
                 <prop id="2147483647" list="0" val="thisactor"/>
             </s>
         </snippets>
@@ -251,7 +265,7 @@
     <sprite atlasID="0" default="0" defaultAnimation="0" desc="" height="32" id="2" name="Player" shared="false" width="16">
         <anim across="1" down="1" durations="100" height="32" id="0" loop="true" name="Animation 0" numframes="1" originx="8" originy="16" sync="false" width="16"/>
     </sprite>
-    <actor adamp="0.0" ascale="true" atlasID="0" bodytype="2" continuous="true" desc="" eventsnippetid="2" fixedrot="false" fric="0.2" gid="3" id="1" ignoreg="false" inertia="1.0" ldamp="0.0" lw="false" mass="1.0" name="Player" oid="-1" pausable="true" rest="0.0" shared="false" sprite="2" static="false">
+    <actor adamp="0.0" ascale="true" atlasID="0" bodytype="0" continuous="true" desc="" eventsnippetid="2" fixedrot="false" fric="0.2" gid="3" id="1" ignoreg="false" inertia="1.0" ldamp="0.0" lw="false" mass="1.0" name="Player" oid="-1" pausable="true" rest="0.0" shared="false" sprite="2" static="true">
         <snippets>
             <s enabled="true" id="3">
                 <prop id="1" list="0" val="98"/>
@@ -277,11 +291,9 @@
         </snippets>
     </actor>
     <sprite atlasID="0" default="0" defaultAnimation="0" desc="" height="32" id="12" name="Policeman" shared="false" width="16">
-        <anim across="1" down="1" durations="100" height="32" id="0" loop="true" name="Animation 0" numframes="1" originx="8" originy="16" sync="false" width="16">
-            <poly data="4,0,0,16,0,16,32,0,32" density="0.1" fric="0.2" gid="-1000" id="0" name="Animation 0" rest="0.0" sensor="false"/>
-        </anim>
+        <anim across="1" down="1" durations="100" height="32" id="0" loop="true" name="Animation 0" numframes="1" originx="8" originy="16" sync="false" width="16"/>
     </sprite>
-    <actor adamp="0.0" ascale="true" atlasID="0" bodytype="2" continuous="true" desc="" eventsnippetid="5" fixedrot="false" fric="0.2" gid="3" id="11" ignoreg="false" inertia="1.0" ldamp="0.0" lw="false" mass="1.0" name="Policeman" oid="-1" pausable="true" rest="0.0" shared="false" sprite="12" static="false">
+    <actor adamp="0.0" ascale="true" atlasID="0" bodytype="0" continuous="true" desc="" eventsnippetid="5" fixedrot="false" fric="0.2" gid="3" id="11" ignoreg="false" inertia="1.0" ldamp="0.0" lw="false" mass="1.0" name="Policeman" oid="-1" pausable="true" rest="0.0" shared="false" sprite="12" static="true">
         <snippets>
             <s enabled="true" id="22">
                 <prop id="1" list="0" val="49"/>
@@ -304,8 +316,8 @@
                 <prop id="12" list="0" val="0"/>
                 <prop id="13" list="0" val="0"/>
                 <prop id="14" list="0" val="false"/>
-                <prop id="15" list="0" val="0"/>
                 <prop id="2147483647" list="0" val="thisactor"/>
+                <prop id="15" list="0" val="0"/>
                 <prop id="17" list="0" val="false"/>
                 <prop id="16" list="0" val="15"/>
             </s>
